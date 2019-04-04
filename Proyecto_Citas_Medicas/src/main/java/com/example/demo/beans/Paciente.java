@@ -23,7 +23,7 @@ public class Paciente {
 	@Column
 	private String email_paciente;
 	@Column
-	private int rol;
+	private int rol_paciente;
 	
 	@OneToMany
 	@JoinColumn(name="nick_paciente",insertable = false, updatable = false)
@@ -61,12 +61,12 @@ public class Paciente {
 		this.email_paciente = email_paciente;
 	}
 
-	public int getRol() {
-		return rol;
+	public int getRol_paciente() {
+		return rol_paciente;
 	}
 
-	public void setRol(int rol) {
-		this.rol = rol;
+	public void setRol_paciente(int rol_paciente) {
+		this.rol_paciente = rol_paciente;
 	}
 
 	public List<Cita> getCitas() {
@@ -76,7 +76,7 @@ public class Paciente {
 	public void setCitas(List<Cita> citas) {
 		this.citas = citas;
 	}
-	
+
 	
 	
 }
