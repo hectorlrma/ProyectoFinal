@@ -88,6 +88,13 @@ public class Cita {
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
+
+	@Override
+	public String toString() {
+		return "Cita [id_cita=" + id_cita + ", fecha_cita=" + fecha_cita + ", hora_cita=" + hora_cita + ", nick_medico="
+				+ nick_medico + ", nick_paciente=" + nick_paciente + ", medico=" + medico + ", paciente=" + paciente
+				+ "]";
+	}
 	
 	
 	

@@ -1,27 +1,29 @@
-package com.example.demo.beans;
+package com.example.demo.dto;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="localidades")
-public class Localidad {
+
+import com.example.demo.beans.Medico;
+
+public class LocalidadDTO {
+
 	
-	@Id
-	@Column
+	
 	private int id_localidad;
-	@Column
 	private String nombre_localidad;
-	
-	@OneToMany
-	@JoinColumn(name="id_localidad",insertable = false, updatable = false)
 	private List<Medico> medicos;
+	
+	public LocalidadDTO(int id_localidad, String nombre_localidad, List<Medico> medicos) {
+		super();
+		this.id_localidad = id_localidad;
+		this.nombre_localidad = nombre_localidad;
+		this.medicos = medicos;
+	}
+
+	public LocalidadDTO() {
+		
+	}
 
 	public int getId_localidad() {
 		return id_localidad;
@@ -46,12 +48,8 @@ public class Localidad {
 	public void setMedicos(List<Medico> medicos) {
 		this.medicos = medicos;
 	}
-
-	@Override
-	public String toString() {
-		return "Localidad [id_localidad=" + id_localidad + ", nombre_localidad=" + nombre_localidad + ", medicos="
-				+ medicos + "]";
-	}
-
+	
+	
+	
 	
 }

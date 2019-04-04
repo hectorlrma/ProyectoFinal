@@ -38,6 +38,10 @@ public class Medico {
 	@OneToMany
 	@JoinColumn(name="nick_medico",insertable = false, updatable = false)
 	private List<Cita> citas;
+	
+	@ManyToOne
+	@JoinColumn(name="id_especialidad", insertable=false,updatable=false)
+	private Especialidad especialidad;
 
 	public String getNick_medico() {
 		return nick_medico;
@@ -126,6 +130,26 @@ public class Medico {
 
 	public void setCitas(List<Cita> citas) {
 		this.citas = citas;
+	}
+
+	
+
+	public Especialidad getEspecialidad() {
+		return especialidad;
+	}
+
+
+	public void setEspecialidad(Especialidad especialidad) {
+		this.especialidad = especialidad;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Medico [nick_medico=" + nick_medico + ", nombre_medico=" + nombre_medico + ", password_medico="
+				+ password_medico + ", email_medico=" + email_medico + ", rol_medico=" + rol_medico
+				+ ", especialidad_medico=" + especialidad_medico + ", id_localidad=" + id_localidad + ", localidad="
+				+ localidad + ", citas=" + citas + "]";
 	}
 	
 	

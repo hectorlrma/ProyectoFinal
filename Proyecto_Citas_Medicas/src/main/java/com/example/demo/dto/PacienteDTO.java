@@ -1,33 +1,37 @@
-package com.example.demo.beans;
+package com.example.demo.dto;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import com.example.demo.beans.Cita;
 
-@Entity
-@Table(name="pacientes")
-public class Paciente {
+public class PacienteDTO {
 	
-	@Id
-	@Column
 	private String nick_paciente;
-	@Column
+
 	private String nombre_paciente;
-	@Column
+	
 	private String password_paciente;
-	@Column
+	
 	private String email_paciente;
-	@Column
+	
 	private int rol_paciente;
 	
-	@OneToMany
-	@JoinColumn(name="nick_paciente",insertable = false, updatable = false)
 	private List<Cita> citas;
+
+	public PacienteDTO(String nick_paciente, String nombre_paciente, String password_paciente, String email_paciente,
+			int rol_paciente, List<Cita> citas) {
+		super();
+		this.nick_paciente = nick_paciente;
+		this.nombre_paciente = nombre_paciente;
+		this.password_paciente = password_paciente;
+		this.email_paciente = email_paciente;
+		this.rol_paciente = rol_paciente;
+		this.citas = citas;
+	}
+
+	public PacienteDTO() {
+		
+	}
 
 	public String getNick_paciente() {
 		return nick_paciente;
@@ -76,14 +80,9 @@ public class Paciente {
 	public void setCitas(List<Cita> citas) {
 		this.citas = citas;
 	}
-
-	@Override
-	public String toString() {
-		return "Paciente [nick_paciente=" + nick_paciente + ", nombre_paciente=" + nombre_paciente
-				+ ", password_paciente=" + password_paciente + ", email_paciente=" + email_paciente + ", rol_paciente="
-				+ rol_paciente + ", citas=" + citas + "]";
-	}
-
 	
 	
+	
+	
+
 }
