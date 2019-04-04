@@ -1,9 +1,5 @@
 package com.example.demo.beans;
 
-<<<<<<< HEAD
-public class Medico {
-
-=======
 import java.util.List;
 
 import javax.persistence.Column;
@@ -137,5 +133,4 @@ public class Medico {
 	
 	
 	
->>>>>>> branch 'master' of https://github.com/hectorlrma/ProyectoFinal.git
 }
