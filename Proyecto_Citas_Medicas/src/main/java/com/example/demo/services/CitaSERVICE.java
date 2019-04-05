@@ -62,11 +62,7 @@ public class CitaSERVICE implements ICitaSERVICE {
 		
 	}
 
-	@Override
-	public void modificarCita(int id_cita) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 	
 	

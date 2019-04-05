@@ -17,5 +17,5 @@ public interface ICitaSERVICE {
 	
 	public void borrarCita (int id_cita);
 	
-	public void modificarCita (int id_cita);
+	
 }
