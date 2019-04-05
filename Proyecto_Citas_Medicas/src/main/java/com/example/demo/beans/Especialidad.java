@@ -20,6 +20,7 @@ public class Especialidad {
 	@Column
 	private String nombre_especialidad;
 	
+	@Column
 	private String nick_medico;
 	
 	@OneToMany
