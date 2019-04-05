@@ -6,4 +6,6 @@ import com.example.demo.beans.Localidad;
 
 public interface LocalidadRepository extends CrudRepository<Localidad, Integer> {
 
+		
+	
 }

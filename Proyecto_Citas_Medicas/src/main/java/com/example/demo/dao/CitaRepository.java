@@ -9,4 +9,6 @@ import com.example.demo.beans.Cita;
 public interface CitaRepository extends CrudRepository<Cita, Integer> {
 
 	public List <Cita> findByMedico(String nick_medico);
+	
+	public List <Cita> findByPaciente (String nick_paciente);
 }
