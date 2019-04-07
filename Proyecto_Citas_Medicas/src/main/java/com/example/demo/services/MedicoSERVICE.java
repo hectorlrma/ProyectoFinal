@@ -19,9 +19,10 @@ public class MedicoSERVICE implements IMedicoSERVICE {
 	MedicoRepository medicoRepository;
 
 	@Override
-	public List<MedicoDTO> buscarMedicoPorLocalidad(int id_localidad) {
+	public List<MedicoDTO> buscarMedicoPorLocalidadAndByEspecialidad(int id_localidad, int id_especialidad) {
 		
-		List<Medico> lista = medicoRepository.findByLocalidad(id_localidad);
+		
+		List<Medico> lista = medicoRepository.findByLocalidadAndEspecialidad(id_localidad,id_especialidad);
 		List<MedicoDTO> listaDTO = new ArrayList<MedicoDTO>();
 		
 		for (Medico medico : lista) {
@@ -31,7 +32,7 @@ public class MedicoSERVICE implements IMedicoSERVICE {
 		}
 	
 		return listaDTO;
-	
+		
 	}
 
 

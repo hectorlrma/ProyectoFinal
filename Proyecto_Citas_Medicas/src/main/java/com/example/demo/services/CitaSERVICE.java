@@ -53,6 +53,8 @@ public class CitaSERVICE implements ICitaSERVICE {
 	public void altaCita(Cita cita) {
 		
 		citaRepository.save(cita);
+		
+		//Mirar si fecha,hora y médico coinciden.
 	}
 
 	@Override
@@ -61,8 +63,12 @@ public class CitaSERVICE implements ICitaSERVICE {
 		citaRepository.deleteById(id_cita);
 		
 	}
-
 	
+	@Override
+	public void modificarCita(Cita cita) {
+		
+		citaRepository.save(cita);
+	}
 	
 	
 	

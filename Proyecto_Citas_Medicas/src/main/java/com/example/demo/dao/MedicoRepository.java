@@ -8,6 +8,7 @@ import com.example.demo.beans.Medico;
 
 public interface MedicoRepository extends CrudRepository<Medico, String> {
 
-	public List<Medico> findByLocalidad(int id_localidad);
+	public List<Medico> findByLocalidadAndEspecialidad(int id_localidad, int id_espcialidad);
+	
 	
 }
