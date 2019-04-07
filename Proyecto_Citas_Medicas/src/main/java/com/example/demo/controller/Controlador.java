@@ -65,7 +65,7 @@ public class Controlador {
 				return "registrarse";
 			}
 		} else {
-			if (medicoSERVICE.buscar_idusuario(medico.getNick_medico()) == null) {
+			if (medicoSERVICE.buscar_nick_medico(medico.getNick_medico()) == null) {
 				medicoSERVICE.altamedico(medico);
 				request.setAttribute("mensaje", "alta realizada correctamente");
 				session.setAttribute("nick_medico", medico);
@@ -83,8 +83,14 @@ public class Controlador {
 		System.out.println("TRAZA LOGIN PACIENTE");
 		session.getAttribute("nick_paciente");
 		paciente=pacienteSERVICE.buscarcita(paciente.getNick_paciente());
-		List<Cita> cita = paciente.getCitas();
-		request.setAttribute("cita_paciente", cita);
+		List<Cita> citas = paciente.getCitas();
+		List<Cita> citadia = (List<Cita>) new Cita();
+		for (Cita cita : citas) {
+			if (cita.getFecha_cita()==fechadia()) {
+				citadia.add(cita);
+			}
+		}
+		request.setAttribute("cita_paciente", citadia);
 		//		return "medico";
 		return "loginpaciente";
 	}
@@ -95,13 +101,14 @@ public class Controlador {
 		session.getAttribute("nick_medico");
 		medico=medicoSERVICE.buscarcita(medico.getNick_medico());
 		List<Cita> citas = medico.getCitas();
+		List<Cita> citadia = (List<Cita>) new Cita();
 		for (Cita cita : citas) {
 			if (cita.getFecha_cita()==fechadia()) {
-				citas.add(cita);
+				citadia.add(cita);
 			}
 		}
 		
-		request.setAttribute("cita_medico", cita);
+		request.setAttribute("cita_medico", citadia);
 		return "loginmedico";
 //		return "paciente";
 	}
@@ -113,4 +120,74 @@ public class Controlador {
 		citaSERVICE.borrarCita(cita.getId_cita());
 		return "borrarcita";
 	}
+	
+	@RequestMapping("/citaantiguapac") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
+	public String citaantiguapac(HttpServletRequest request) {
+		HttpSession session = request.getSession(true); // abro sesion
+		System.out.println("TRAZA CITA ANTIGUA PACIENTE");
+		session.getAttribute("nick_paciente");
+		paciente=pacienteSERVICE.buscarcita(paciente.getNick_paciente());
+		List<Cita> citas = paciente.getCitas();
+		List<Cita> citadia = (List<Cita>) new Cita();
+		for (Cita cita : citas) {
+			if (cita.getFecha_cita()<fechadia()) {
+				citadia.add(cita);
+			}
+		}
+		request.setAttribute("cita_paciente", citadia);
+		return "citaantiguapac";
+	}
+	
+	@RequestMapping("/citaproximapac") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
+	public String citaproximapac(HttpServletRequest request) {
+		HttpSession session = request.getSession(true); // abro sesion
+		System.out.println("TRAZA CITA ANTIGUA PACIENTE");
+		session.getAttribute("nick_paciente");
+		paciente=pacienteSERVICE.buscarcita(paciente.getNick_paciente());
+		List<Cita> citas = paciente.getCitas();
+		List<Cita> citadia = (List<Cita>) new Cita();
+		for (Cita cita : citas) {
+			if (cita.getFecha_cita()>fechadia()) {
+				citadia.add(cita);
+			}
+		}
+		request.setAttribute("cita_paciente", citadia);
+		return "citaproximapac";
+	}
+	
+	@RequestMapping("/citaantiguamed") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
+	public String citaantiguamed(HttpServletRequest request) {
+		HttpSession session = request.getSession(true); // abro sesion
+		System.out.println("TRAZA CITA ANTIGUA MEDICO");
+		session.getAttribute("nick_medico");
+		medico=medicoSERVICE.buscarcita(medico.getNick_medico());
+		List<Cita> citas = medico.getCitas();
+		List<Cita> citadia = (List<Cita>) new Cita();
+		for (Cita cita : citas) {
+			if (cita.getFecha_cita()<fechadia()) {
+				citadia.add(cita);
+			}
+		}
+		
+		request.setAttribute("cita_medico", citadia);
+		return "citaantiguamed";
+	}
+	
+	@RequestMapping("/citaproximamed") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
+	public String citaproximamed(HttpServletRequest request) {
+	HttpSession session = request.getSession(true); // abro sesion
+	System.out.println("TRAZA CITA PROXIMA MEDICO");
+	session.getAttribute("nick_medico");
+	medico=medicoSERVICE.buscarcita(medico.getNick_medico());
+	List<Cita> citas = medico.getCitas();
+	List<Cita> citadia = (List<Cita>) new Cita();
+	for (Cita cita : citas) {
+		if (cita.getFecha_cita()>fechadia()) {
+			citadia.add(cita);
+		}
+	}	
+	request.setAttribute("cita_medico", citadia);
+		return "citaproximamed";
+	}
+ 
 }
