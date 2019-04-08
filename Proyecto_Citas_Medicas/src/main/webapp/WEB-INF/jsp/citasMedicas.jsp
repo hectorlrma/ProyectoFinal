@@ -41,7 +41,7 @@
       <a class="nav-link" href="/citaantiguamed" style="color: #8331CC">Citas antiguas</a>
     </li>
      <li class="nav-item">
-      <a class="nav-link" href="/citaantiguamed" style="color: #8331CC">Citas confirmadas</a>
+      <a class="nav-link" href="/citaconfirmada" style="color: #8331CC">Citas confirmadas</a>
     </li>
   </ul>
   </nav>

@@ -85,13 +85,15 @@
 									
 								</tr>
 							</thead>
-							<tr>
 							<c:forEach var="cita" items="${cita_paciente}">
+							<tr>
+							
 							<td>${cita.nick_medico}</td>
 							<td>${cita.fecha_cita}</td>
-							</c:forEach>
+							
 							
 							</tr>
+							</c:forEach>
 						</table>
 					</div>
 					</div>
