@@ -25,6 +25,7 @@ public class EspecialidadSERVICE implements IEspecialidadSERVICE {
 		for (Especialidad esp : especialidades) {
 			EspecialidadDTO especialidadDTO = new EspecialidadDTO(esp.getId_especialidad(),esp.getNombre_especialidad(),esp.getMedicos());
 			listaDTO.add(especialidadDTO);
+			System.out.println(especialidadDTO);
 		}
 		return listaDTO;
 	}
