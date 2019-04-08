@@ -1,6 +1,9 @@
 package com.example.demo.services;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +71,18 @@ public class CitaSERVICE implements ICitaSERVICE {
 	public void modificarCita(Cita cita) {
 		
 		citaRepository.save(cita);
+	}
+
+	@Override
+	public Date buscarFecha() throws ParseException {
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date dia = new Date(System.currentTimeMillis());
+		String fechaDiaString = formatter.format(dia);
+		Date fechaDia = formatter.parse(fechaDiaString);
+		
+		return fechaDia;
+		
 	}
 	
 	

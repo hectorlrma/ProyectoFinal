@@ -2,6 +2,8 @@ package com.example.demo.interfaces;
 
 
 
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 import com.example.demo.beans.Cita;
@@ -18,4 +20,6 @@ public interface ICitaSERVICE {
 	public void borrarCita (int id_cita);
 	
 	public void modificarCita(Cita cita);
+	
+	public Date buscarFecha() throws ParseException;
 }
