@@ -73,7 +73,6 @@ public class Controlador {
 	public String registroPaciente(HttpServletRequest request, @ModelAttribute PacienteDTO pacienteDTO) {
 		System.out.println("TRAZA REGISTRO PACIENTE");		
 		HttpSession session = request.getSession(true); // abro sesion
-		System.out.println(pacienteDTO);
 		if (pacienteSERVICE.buscarPacienteDTO(pacienteDTO.getNick_paciente()) == null) {
 				pacienteSERVICE.addPacienteDTO(pacienteDTO);
 				request.setAttribute("mensaje", "alta realizada correctamente");
