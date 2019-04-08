@@ -206,17 +206,17 @@
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Especialidad</label>
-    <select>
+    <select name="id_especialidad">
     <c:forEach var="especialidad" items="${especialidades}">
-    <option name="id_especialidad" value="${especialidad.id_especialidad}">${especialidad.nombre_especialidad}</option>
+    <option value="${especialidad.id_especialidad}">${especialidad.nombre_especialidad}</option>
     </c:forEach>
     </select>
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Localidad</label>
-    <select>
+    <select name="id_localidad">
     <c:forEach var="localidad" items="${localidades}">
-    <option name="id_localidad" value="${localidad.id_localidad}">${localidad.nombre_localidad}</option>
+    <option  value="${localidad.id_localidad}">${localidad.nombre_localidad}</option>
     </c:forEach>
     </select>
   </div>
