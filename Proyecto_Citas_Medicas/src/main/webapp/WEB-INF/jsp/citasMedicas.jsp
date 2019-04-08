@@ -27,31 +27,7 @@
     </li>
   </ul>
   </nav>
-<form action="/buscar">
- <nav class="navbar navbar-expand-sm" style="background-color: #2BD1E8 ">
-  <ul></ul>
-  <ul></ul>
-  <ul></ul>
-  <ul></ul>
-  
-     <select name="especialidad" class="custom-select mb-3">
-      <option selected>Elige Especialidad</option>
-      <c:forEach var="especialidad" items="${especialidades}">
-       <option value="${especialidad.id_especialidad}">${especialidad.nombre_especialidad}</option>
-       </c:forEach>
-    </select>
- 
- 
-     <select name="localidad" class="custom-select mb-3">
-    <option selected>Elige Localidad</option>
-      <c:forEach var="localidad" items="${localidades}">
-       <option value="${localidad.id_localidad}">${localidad.nombre_localidad}</option>
-       </c:forEach>
-     </select>
-  <ul><button type="submit" class="btn btn-primary">Buscar</button></ul>
-    
-    </nav>
-  </form>
+
   <nav class="navbar navbar-expand-sm">
   <ul></ul>
   <ul></ul>
@@ -59,24 +35,18 @@
   <ul></ul>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="/loginpaciente" style="color: #8331CC">Citas de Hoy</a>
+      <a class="nav-link" href="loginmedico" style="color: #8331CC">Citas de Hoy</a>
     </li>
      <li class="nav-item">
-      <a class="nav-link" href="/citaproximapac" style="color: #8331CC">Próximas citas</a>
+      <a class="nav-link" href="citaproximamed" style="color: #8331CC">Próximas citas</a>
     </li>
      <li class="nav-item">
-      <a class="nav-link" href="/citaantiguapac" style="color: #8331CC">Citas antiguas</a>
+      <a class="nav-link" href="citaantiguamed" style="color: #8331CC">Citas antiguas</a>
     </li>
   </ul>
   </nav>
        
-        
-          <div class="limiter">
-		<div class="container-table100">
-			<div class="wrap-table100">
-				<div class="table100 ver1 m-b-110">
-					<div class="table100-head">
-						<table>
+        			<table>
 							<thead>
 								<tr class="row100 head">
 									<th class="cell100 column1">Médico</th>
@@ -86,18 +56,14 @@
 								</tr>
 							</thead>
 							<tr>
-							<c:forEach var="cita" items="${cita_paciente}">
+							<c:forEach var="cita" items="${cita_medico}">
 							<td>${cita.nick_medico}</td>
 							<td>${cita.fecha_cita}</td>
 							</c:forEach>
 							
 							</tr>
 						</table>
-					</div>
-					</div>
-					</div>
-					</div>
-					</div>
+					
  
 </body>
 </html>
