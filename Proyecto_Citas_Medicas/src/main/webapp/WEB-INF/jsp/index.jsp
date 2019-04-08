@@ -152,19 +152,19 @@
       <div class="modal-body">
         <div class="form-group">
     <label for="exampleInputPassword">Nick</label>
-    <input type="text" class="form-control"  value="${pacienteDTO.nick_paciente}" id="nick_paciente" placeholder="Introduce tu nick">
+    <input type="text" class="form-control"  value="${pacienteDTO.nick_paciente}" id="nick_paciente" name="nick_paciente" placeholder="Introduce tu nick">
   </div>   
    <div class="form-group">
     <label for="exampleInputPassword1">Nombre</label>
-    <input type="text" class="form-control"  value="${pacienteDTO.nombre_paciente}" id="nombre_paciente" placeholder="Introduce tu password">
+    <input type="text" class="form-control"  value="${pacienteDTO.nombre_paciente}" id="nombre_paciente" name="nombre_paciente" placeholder="Introduce tu password">
   </div>   
    <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control"  value="${pacienteDTO.password_paciente}" id="password_paciente" placeholder="Introduce tu password">
+    <input type="password" class="form-control"  value="${pacienteDTO.password_paciente}" id="password_paciente" name="password_paciente" placeholder="Introduce tu password">
   </div>
  <div class="form-group">
     <label for="exampleInputEmail1">Email</label>
-    <input type="email" class="form-control" value="${pacienteDTO.email_paciente}" id="email_paciente" aria-describedby="emailHelp" placeholder="Introduce tu email">
+    <input type="email" class="form-control" value="${pacienteDTO.email_paciente}" id="email_paciente" name="email_paciente" aria-describedby="emailHelp" placeholder="Introduce tu email">
    <!--  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
   </div>
       <div class="form-group">
@@ -189,19 +189,19 @@
       <div class="modal-body">
         <div class="form-group">
     <label for="exampleInputPassword">Nick</label>
-    <input type="text" class="form-control"  value="${medicoDTO.nick_medico}" id="exampleInputPassword" placeholder="Introduce tu nick">
+    <input type="text" class="form-control"  value="${medicoDTO.nick_medico}" id="nick_medico" placeholder="Introduce tu nick">
   </div>      
    <div class="form-group">
     <label for="exampleInputPassword1">Nombre</label>
-    <input type="text" class="form-control" value="${medicoDTO.nombre_medico}" id="exampleInputPassword1" placeholder="Introduce tu password">
+    <input type="text" class="form-control" value="${medicoDTO.nombre_medico}" id="nombre_medico" placeholder="Introduce tu password">
   </div>
    <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" value="${medicoDTO.password_medico}" id="exampleInputPassword1" placeholder="Introduce tu password">
+    <input type="password" class="form-control" value="${medicoDTO.password_medico}" id="password_medico" placeholder="Introduce tu password">
   </div>
  <div class="form-group">
     <label for="exampleInputEmail1">Email</label>
-    <input type="email" class="form-control" value="${medicoDTO.email_medico}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce tu email">
+    <input type="email" class="form-control" value="${medicoDTO.email_medico}" id="email_medico" aria-describedby="emailHelp" placeholder="Introduce tu email">
    <!--  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
   </div>
   <div class="form-group">
