@@ -23,7 +23,8 @@ public class EspecialidadSERVICE implements IEspecialidadSERVICE {
 		Iterable<Especialidad> especialidades = especialidadRepository.findAll();
 		
 		for (Especialidad esp : especialidades) {
-			EspecialidadDTO especialidadDTO = new EspecialidadDTO();
+			EspecialidadDTO especialidadDTO = new EspecialidadDTO(esp.getId_especialidad(),esp.getNombre_especialidad(),esp.getMedicos());
+			listaDTO.add(especialidadDTO);
 		}
 		return listaDTO;
 	}
