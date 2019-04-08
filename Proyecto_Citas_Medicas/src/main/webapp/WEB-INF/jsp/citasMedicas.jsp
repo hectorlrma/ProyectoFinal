@@ -48,10 +48,10 @@
        
         			<table>
 							<thead>
-								<tr class="row100 head">
-									<th class="cell100 column1">Médico</th>
-									<th class="cell100 column4">Fecha</th>
-									<th class="cell100 column4">Hora</th>
+								<tr>
+									<th>Médico</th>
+									<th>Fecha</th>
+									<th>Hora</th>
 									
 								</tr>
 							</thead>
