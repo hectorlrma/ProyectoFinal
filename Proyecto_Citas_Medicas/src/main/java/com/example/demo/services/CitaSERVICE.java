@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 
 import com.example.demo.beans.Cita;
+import com.example.demo.beans.Paciente;
 import com.example.demo.dao.CitaRepository;
 import com.example.demo.dto.CitaDTO;
 import com.example.demo.interfaces.ICitaSERVICE;
@@ -53,11 +54,17 @@ public class CitaSERVICE implements ICitaSERVICE {
 	}
 
 	@Override
-	public void altaCita(Cita cita) {
+	public void altaCita(CitaDTO citaDTO) {
 		
+		Cita cita = new Cita();
+		
+		cita.setId_cita(citaDTO.getId_cita());
+		cita.setFecha_cita(citaDTO.getFecha_cita());
+		cita.setHora_cita(citaDTO.getHora_cita());
+		cita.setNick_medico(citaDTO.getNick_medico());
+		cita.setNick_paciente(citaDTO.getNick_paciente());
+			
 		citaRepository.save(cita);
-		
-		//Mirar si fecha,hora y médico coinciden.
 	}
 
 	@Override
@@ -68,7 +75,15 @@ public class CitaSERVICE implements ICitaSERVICE {
 	}
 	
 	@Override
-	public void modificarCita(Cita cita) {
+	public void modificarCita(CitaDTO citaDTO) {
+		
+		Cita cita = new Cita();
+		
+		cita.setId_cita(citaDTO.getId_cita());
+		cita.setFecha_cita(citaDTO.getFecha_cita());
+		cita.setHora_cita(citaDTO.getHora_cita());
+		cita.setNick_medico(citaDTO.getNick_medico());
+		cita.setNick_paciente(null);
 		
 		citaRepository.save(cita);
 	}

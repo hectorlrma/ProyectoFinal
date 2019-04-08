@@ -15,11 +15,11 @@ public interface ICitaSERVICE {
 	
 	public List <CitaDTO> buscarCitaPorPaciente(String nick_paciente);
 	
-	public void altaCita (Cita cita);
+	public void altaCita (CitaDTO citaDTO);
 	
 	public void borrarCita (int id_cita);
 	
-	public void modificarCita(Cita cita);
+	public void modificarCita(CitaDTO citaDTO);
 	
 	public Date getFechaDia() throws ParseException;
 }

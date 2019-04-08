@@ -152,9 +152,12 @@ public class Medico {
 	public String toString() {
 		return "Medico [nick_medico=" + nick_medico + ", nombre_medico=" + nombre_medico + ", password_medico="
 				+ password_medico + ", email_medico=" + email_medico + ", rol_medico=" + rol_medico
-				+ ", id_especialidad=" + id_especialidad + ", id_localidad=" + id_localidad + ", localidad="
-				+ localidad + ", citas=" + citas + "]";
+				+ ", id_especialidad=" + id_especialidad + ", id_localidad=" + id_localidad + ", localidad=" + localidad
+				+ ", especialidad=" + especialidad + "]";
 	}
+
+
+	
 
 
 	

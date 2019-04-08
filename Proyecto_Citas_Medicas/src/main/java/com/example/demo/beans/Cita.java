@@ -95,6 +95,8 @@ public class Cita {
 				+ nick_medico + ", nick_paciente=" + nick_paciente + ", medico=" + medico + ", paciente=" + paciente
 				+ "]";
 	}
+
+	
 	
 	
 	
