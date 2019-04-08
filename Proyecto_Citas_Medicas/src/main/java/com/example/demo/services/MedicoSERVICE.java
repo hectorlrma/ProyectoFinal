@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 
 
 import com.example.demo.beans.Medico;
+import com.example.demo.beans.Paciente;
 import com.example.demo.dao.MedicoRepository;
 import com.example.demo.dto.MedicoDTO;
+import com.example.demo.dto.PacienteDTO;
 import com.example.demo.interfaces.IMedicoSERVICE;
 
 @Service
@@ -37,16 +39,19 @@ public class MedicoSERVICE implements IMedicoSERVICE {
 	}
 
 	@Override
-	public Medico buscarMedico(String nick_medico) {
+	public MedicoDTO buscarMedico(String nick_medico) {
 
 		Optional <Medico> medicoOp= medicoRepository.findById(nick_medico);
-		Medico medico = null;
 		if(medicoOp.isPresent())
 		{
-			medico = medicoOp.get();
+			Medico medico = medicoOp.get();
+			MedicoDTO medicoDTO = new MedicoDTO(medico.getNick_medico(), medico.getNombre_medico(), medico.getPassword_medico(), medico.getEmail_medico(), medico.getRol_medico(),
+					medico.getEspecialidad_medico(), medico.getId_localidad());
+			
+			return medicoDTO;
 		}
 		
-		return medico;
+		return null;
 		
 	}
 

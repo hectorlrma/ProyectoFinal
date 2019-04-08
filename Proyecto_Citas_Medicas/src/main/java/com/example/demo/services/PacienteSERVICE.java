@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.beans.Paciente;
 import com.example.demo.dao.PacienteRepository;
+import com.example.demo.dto.PacienteDTO;
 import com.example.demo.interfaces.IPacienteSERVICE;
 
 @Service
@@ -16,16 +17,21 @@ public class PacienteSERVICE implements IPacienteSERVICE {
 	PacienteRepository pacienteRepository;
 
 	@Override
-	public Paciente buscarPaciente(String nick_paciente) {
+	public PacienteDTO buscarPaciente(String nick_paciente) {
 		
 				Optional <Paciente> pacienteOp= pacienteRepository.findById(nick_paciente);
-				Paciente paciente = null;
+				
+				
 				if(pacienteOp.isPresent())
 				{
-					paciente = pacienteOp.get();
+					Paciente paciente = pacienteOp.get();
+					PacienteDTO pacienteDTO = new PacienteDTO(paciente.getNick_paciente(), paciente.getNombre_paciente(), paciente.getPassword_paciente(), paciente.getEmail_paciente(),
+							paciente.getRol_paciente(), paciente.getCitas());
+					
+					return pacienteDTO;
 				}
 				
-				return paciente;
+				return null;
 		
 	}
 

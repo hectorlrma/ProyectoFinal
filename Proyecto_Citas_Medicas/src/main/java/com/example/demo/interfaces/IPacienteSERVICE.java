@@ -1,10 +1,11 @@
 package com.example.demo.interfaces;
 
 import com.example.demo.beans.Paciente;
+import com.example.demo.dto.PacienteDTO;
 
 public interface IPacienteSERVICE {
 
-	public Paciente buscarPaciente(String nick_paciente);
+	public PacienteDTO buscarPaciente(String nick_paciente);
 	
 	public void addPaciente(Paciente paciente);
 

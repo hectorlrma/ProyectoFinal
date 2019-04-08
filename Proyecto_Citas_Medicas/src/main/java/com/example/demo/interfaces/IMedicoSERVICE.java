@@ -9,7 +9,7 @@ public interface IMedicoSERVICE {
 
 	//public List <MedicoDTO> buscarMedicoPorLocalidad(int id_localidad);
 	
-	public Medico buscarMedico(String nick_medico);
+	public MedicoDTO buscarMedico(String nick_medico);
 	
 	public void addMedico (Medico medico);
 
