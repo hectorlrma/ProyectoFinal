@@ -74,7 +74,7 @@ public class CitaSERVICE implements ICitaSERVICE {
 	}
 
 	@Override
-	public Date buscarFecha() throws ParseException {
+	public Date getFechaDia() throws ParseException {
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Date dia = new Date(System.currentTimeMillis());

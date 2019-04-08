@@ -21,5 +21,5 @@ public interface ICitaSERVICE {
 	
 	public void modificarCita(Cita cita);
 	
-	public Date buscarFecha() throws ParseException;
+	public Date getFechaDia() throws ParseException;
 }
