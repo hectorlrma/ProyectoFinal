@@ -66,12 +66,12 @@
       <form action="loginmedico">
       <div class="modal-body">
    <div class="form-group">
-    <label for="exampleInputPassword">Nick</label>
-    <input type="text" class="form-control" id="exampleInputPassword" placeholder="Introduce tu nick">
+    <label for="nombre_medico">Nick</label>
+    <input type="text" class="form-control" id="nick_medico" name="nombre_medico" placeholder="Introduce tu nick">
   </div>      
    <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Introduce tu password">
+    <label for="password_medico">Password</label>
+    <input type="password" class="form-control" id="password_medico" name="password_medico" placeholder="Introduce tu password">
   </div>
     <div class="form-group">
      <button type="submit" class="btn btn-primary">Log in</button>
@@ -208,7 +208,7 @@
     <label for="exampleInputEmail1">Especialidad</label>
     <select>
     <c:forEach var="especialidad" items="${especialidades}">
-    <option value="${especialidad.id_especialidad}">${especialidad.nombre_especialidad}</option>
+    <option name="id_especialidad" value="${especialidad.id_especialidad}">${especialidad.nombre_especialidad}</option>
     </c:forEach>
     </select>
   </div>
@@ -216,7 +216,7 @@
     <label for="exampleInputEmail1">Localidad</label>
     <select>
     <c:forEach var="localidad" items="${localidades}">
-    <option value="${localidad.id_localidad}">${localidad.nombre_localidad}</option>
+    <option name="id_localidad" value="${localidad.id_localidad}">${localidad.nombre_localidad}</option>
     </c:forEach>
     </select>
   </div>
