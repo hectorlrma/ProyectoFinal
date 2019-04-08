@@ -4,6 +4,8 @@ import com.example.demo.beans.Paciente;
 
 public interface IPacienteSERVICE {
 
-	Paciente buscarcita(String nick_paciente);
+	public Paciente buscarPaciente(String nick_paciente);
+	
+	public void addPaciente(Paciente paciente);
 
 }

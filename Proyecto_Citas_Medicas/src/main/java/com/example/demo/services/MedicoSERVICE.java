@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,27 @@ public class MedicoSERVICE implements IMedicoSERVICE {
 		}
 	
 		return listaDTO;
+		
+	}
+
+	@Override
+	public Medico buscarMedico(String nick_medico) {
+
+		Optional <Medico> medicoOp= medicoRepository.findById(nick_medico);
+		Medico medico = null;
+		if(medicoOp.isPresent())
+		{
+			medico = medicoOp.get();
+		}
+		
+		return medico;
+		
+	}
+
+	@Override
+	public void addMedico(Medico medico) {
+	
+		medicoRepository.save(medico);
 		
 	}
 
