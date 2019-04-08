@@ -102,6 +102,14 @@ public class MedicoDTO {
 	public void setCitas(List<Cita> citas) {
 		this.citas = citas;
 	}
+
+	@Override
+	public String toString() {
+		return "MedicoDTO [nick_medico=" + nick_medico + ", nombre_medico=" + nombre_medico + ", password_medico="
+				+ password_medico + ", email_medico=" + email_medico + ", rol_medico=" + rol_medico
+				+ ", especialidad_medico=" + especialidad_medico + ", id_localidad=" + id_localidad + ", citas=" + citas
+				+ "]";
+	}
 	
 	
 	

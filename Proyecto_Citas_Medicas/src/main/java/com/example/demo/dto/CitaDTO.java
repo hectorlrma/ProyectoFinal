@@ -67,6 +67,12 @@ public class CitaDTO {
 	public void setNick_paciente(String nick_paciente) {
 		this.nick_paciente = nick_paciente;
 	}
+
+	@Override
+	public String toString() {
+		return "CitaDTO [id_cita=" + id_cita + ", fecha_cita=" + fecha_cita + ", hora_cita=" + hora_cita
+				+ ", nick_medico=" + nick_medico + ", nick_paciente=" + nick_paciente + "]";
+	}
 	
 	
 }

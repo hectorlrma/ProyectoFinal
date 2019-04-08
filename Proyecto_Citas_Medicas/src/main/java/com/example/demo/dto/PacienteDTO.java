@@ -80,6 +80,13 @@ public class PacienteDTO {
 	public void setCitas(List<Cita> citas) {
 		this.citas = citas;
 	}
+
+	@Override
+	public String toString() {
+		return "PacienteDTO [nick_paciente=" + nick_paciente + ", nombre_paciente=" + nombre_paciente
+				+ ", password_paciente=" + password_paciente + ", email_paciente=" + email_paciente + ", rol_paciente="
+				+ rol_paciente + ", citas=" + citas + "]";
+	}
 	
 	
 	

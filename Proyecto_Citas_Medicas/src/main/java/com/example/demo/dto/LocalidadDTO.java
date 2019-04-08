@@ -48,6 +48,12 @@ public class LocalidadDTO {
 	public void setMedicos(List<Medico> medicos) {
 		this.medicos = medicos;
 	}
+
+	@Override
+	public String toString() {
+		return "LocalidadDTO [id_localidad=" + id_localidad + ", nombre_localidad=" + nombre_localidad + ", medicos="
+				+ medicos + "]";
+	}
 	
 	
 	
