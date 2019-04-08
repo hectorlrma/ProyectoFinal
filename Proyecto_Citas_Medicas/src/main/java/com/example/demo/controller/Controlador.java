@@ -55,21 +55,21 @@ public class Controlador {
 		System.out.println("TRAZA REGISTRO");		
 		HttpSession session = request.getSession(true); // abro sesion
 		if (medico.getEspecialidad() == null) {
-			if (pacienteSERVICE.buscar_idusuario(paciente.getNick_paciente()) == null) {
-				pacienteSERVICE.altapaciente(paciente);
+			if (pacienteSERVICE.buscarPaciente(paciente.getNick_paciente()) == null) {
+				pacienteSERVICE.addPaciente(paciente);
 				request.setAttribute("mensaje", "alta realizada correctamente");
 				session.setAttribute("nick_paciente", paciente);
-				return "loginpaciente";
+				return "index";
 			} else {
 				request.setAttribute("mensaje", "usuario ya existe");
 				return "registrarse";
 			}
 		} else {
-			if (medicoSERVICE.buscar_nick_medico(medico.getNick_medico()) == null) {
-				medicoSERVICE.altamedico(medico);
+			if (medicoSERVICE.buscarMedico(medico.getNick_medico()) == null) {
+				medicoSERVICE.addMedico(medico);
 				request.setAttribute("mensaje", "alta realizada correctamente");
 				session.setAttribute("nick_medico", medico);
-				return "loginmedico";
+				return "index";
 			} else {
 				request.setAttribute("mensaje", "usuario ya existe");
 				return "registrarse";
@@ -82,34 +82,34 @@ public class Controlador {
 		HttpSession session = request.getSession(true); // abro sesion
 		System.out.println("TRAZA LOGIN PACIENTE");
 		session.getAttribute("nick_paciente");
-		paciente=pacienteSERVICE.buscarcita(paciente.getNick_paciente());
+		paciente=pacienteSERVICE.buscarPaciente(paciente.getNick_paciente());
 		List<Cita> citas = paciente.getCitas();
 		List<Cita> citadia = (List<Cita>) new Cita();
 		for (Cita cita : citas) {
-			if (cita.getFecha_cita()==fechadia()) {
+//			if (cita.getFecha_cita()==fechadia()) {
 				citadia.add(cita);
-			}
+//			}
 		}
 		request.setAttribute("cita_paciente", citadia);
 		//		return "medico";
-		return "loginpaciente";
+		return "citaPaciente";
 	}
 	@RequestMapping("/loginmedico") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
 	public String loginmedico(HttpServletRequest request) {
 		HttpSession session = request.getSession(true); // abro sesion
 		System.out.println("TRAZA LOGIN MEDICO");
 		session.getAttribute("nick_medico");
-		medico=medicoSERVICE.buscarcita(medico.getNick_medico());
+		medico=medicoSERVICE.buscarMedico(medico.getNick_medico());
 		List<Cita> citas = medico.getCitas();
 		List<Cita> citadia = (List<Cita>) new Cita();
 		for (Cita cita : citas) {
-			if (cita.getFecha_cita()==fechadia()) {
+//			if (cita.getFecha_cita().compareTo(medicoSERVICE.getFechaDia())==0) {
 				citadia.add(cita);
-			}
+//			}
 		}
 		
 		request.setAttribute("cita_medico", citadia);
-		return "loginmedico";
+		return "citaMedico";
 //		return "paciente";
 	}
 	
@@ -126,16 +126,16 @@ public class Controlador {
 		HttpSession session = request.getSession(true); // abro sesion
 		System.out.println("TRAZA CITA ANTIGUA PACIENTE");
 		session.getAttribute("nick_paciente");
-		paciente=pacienteSERVICE.buscarcita(paciente.getNick_paciente());
+		paciente=pacienteSERVICE.buscarPaciente(paciente.getNick_paciente());
 		List<Cita> citas = paciente.getCitas();
 		List<Cita> citadia = (List<Cita>) new Cita();
 		for (Cita cita : citas) {
-			if (cita.getFecha_cita()<fechadia()) {
+//			if (cita.getFecha_cita()<fechadia()) {
 				citadia.add(cita);
-			}
+//			}
 		}
 		request.setAttribute("cita_paciente", citadia);
-		return "citaantiguapac";
+		return "citaPaciente";
 	}
 	
 	@RequestMapping("/citaproximapac") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
@@ -143,16 +143,16 @@ public class Controlador {
 		HttpSession session = request.getSession(true); // abro sesion
 		System.out.println("TRAZA CITA ANTIGUA PACIENTE");
 		session.getAttribute("nick_paciente");
-		paciente=pacienteSERVICE.buscarcita(paciente.getNick_paciente());
+		paciente=pacienteSERVICE.buscarPaciente(paciente.getNick_paciente());
 		List<Cita> citas = paciente.getCitas();
 		List<Cita> citadia = (List<Cita>) new Cita();
 		for (Cita cita : citas) {
-			if (cita.getFecha_cita()>fechadia()) {
+//			if (cita.getFecha_cita()>fechadia()) {
 				citadia.add(cita);
-			}
+//			}
 		}
 		request.setAttribute("cita_paciente", citadia);
-		return "citaproximapac";
+		return "citaPaciente";
 	}
 	
 	@RequestMapping("/citaantiguamed") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
@@ -160,17 +160,17 @@ public class Controlador {
 		HttpSession session = request.getSession(true); // abro sesion
 		System.out.println("TRAZA CITA ANTIGUA MEDICO");
 		session.getAttribute("nick_medico");
-		medico=medicoSERVICE.buscarcita(medico.getNick_medico());
+		medico=medicoSERVICE.buscarMedico(medico.getNick_medico());
 		List<Cita> citas = medico.getCitas();
 		List<Cita> citadia = (List<Cita>) new Cita();
 		for (Cita cita : citas) {
-			if (cita.getFecha_cita()<fechadia()) {
+//			if (cita.getFecha_cita().compareTo(medicoSERVICE.getFechaDia())<0) {
 				citadia.add(cita);
-			}
+//			}
 		}
 		
 		request.setAttribute("cita_medico", citadia);
-		return "citaantiguamed";
+		return "citaMedico";
 	}
 	
 	@RequestMapping("/citaproximamed") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
@@ -178,16 +178,16 @@ public class Controlador {
 	HttpSession session = request.getSession(true); // abro sesion
 	System.out.println("TRAZA CITA PROXIMA MEDICO");
 	session.getAttribute("nick_medico");
-	medico=medicoSERVICE.buscarcita(medico.getNick_medico());
+	medico=medicoSERVICE.buscarMedico(medico.getNick_medico());
 	List<Cita> citas = medico.getCitas();
 	List<Cita> citadia = (List<Cita>) new Cita();
 	for (Cita cita : citas) {
-		if (cita.getFecha_cita()>fechadia()) {
+//		if (cita.getFecha_cita().compareTo(medicoSERVICE.getFechaDia())>0) {
 			citadia.add(cita);
-		}
+//		}
 	}	
 	request.setAttribute("cita_medico", citadia);
-		return "citaproximamed";
+		return "citaMedico";
 	}
  
 }
