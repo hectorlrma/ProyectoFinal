@@ -8,9 +8,9 @@ public interface IMedicoSERVICE {
 
 	//public List <MedicoDTO> buscarMedicoPorLocalidad(int id_localidad);
 	
-	public MedicoDTO buscarMedico(String nick_medico);
+	public MedicoDTO buscarMedicoDTO(String nick_medico);
 	
-	public void addMedico (MedicoDTO medicoDTO);
+	public void addMedicoDTO (MedicoDTO medicoDTO);
 
 	List<MedicoDTO> buscarMedicoPorLocalidadAndByEspecialidad(int id_localidad, int id_espcialidad);
 	

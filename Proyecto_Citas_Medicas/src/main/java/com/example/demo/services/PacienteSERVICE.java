@@ -17,7 +17,7 @@ public class PacienteSERVICE implements IPacienteSERVICE {
 	PacienteRepository pacienteRepository;
 
 	@Override
-	public PacienteDTO buscarPaciente(String nick_paciente) {
+	public PacienteDTO buscarPacienteDTO(String nick_paciente) {
 		
 				Optional <Paciente> pacienteOp= pacienteRepository.findById(nick_paciente);
 				
@@ -36,7 +36,7 @@ public class PacienteSERVICE implements IPacienteSERVICE {
 	}
 
 	@Override
-	public void addPaciente(PacienteDTO pacienteDTO) {
+	public void addPacienteDTO(PacienteDTO pacienteDTO) {
 		
 		Paciente paciente = new Paciente();
 		

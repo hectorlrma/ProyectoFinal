@@ -4,9 +4,9 @@ import com.example.demo.dto.PacienteDTO;
 
 public interface IPacienteSERVICE {
 
-	public PacienteDTO buscarPaciente(String nick_paciente);
+	public PacienteDTO buscarPacienteDTO(String nick_paciente);
 	
-	public void addPaciente(PacienteDTO pacienteDTO);
+	public void addPacienteDTO(PacienteDTO pacienteDTO);
 	
 
 }
