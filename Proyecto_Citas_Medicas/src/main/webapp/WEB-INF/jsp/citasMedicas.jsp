@@ -32,7 +32,7 @@
   <ul></ul>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="/loginmedico" style="color: #8331CC">Citas de Hoy</a>
+      <a class="nav-link" href="/citaHoyMed" style="color: #8331CC">Citas de Hoy</a>
     </li>
      <li class="nav-item">
       <a class="nav-link" href="/citaproximamed" style="color: #8331CC">Próximas citas</a>
@@ -59,6 +59,7 @@
 							<c:forEach var="cita" items="${cita_medico}">
 							<td>${cita.nick_medico}</td>
 							<td>${cita.fecha_cita}</td>
+							<td>${cita.hora_cita}
 							</c:forEach>
 							
 							</tr>
