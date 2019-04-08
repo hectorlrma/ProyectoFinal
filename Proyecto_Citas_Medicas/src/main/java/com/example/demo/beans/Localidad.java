@@ -49,9 +49,10 @@ public class Localidad {
 
 	@Override
 	public String toString() {
-		return "Localidad [id_localidad=" + id_localidad + ", nombre_localidad=" + nombre_localidad + ", medicos="
-				+ medicos + "]";
+		return "Localidad [id_localidad=" + id_localidad + ", nombre_localidad=" + nombre_localidad + "]";
 	}
+
+	
 
 	
 }

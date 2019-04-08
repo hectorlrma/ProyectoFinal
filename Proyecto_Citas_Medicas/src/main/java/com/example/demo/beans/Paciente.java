@@ -81,8 +81,10 @@ public class Paciente {
 	public String toString() {
 		return "Paciente [nick_paciente=" + nick_paciente + ", nombre_paciente=" + nombre_paciente
 				+ ", password_paciente=" + password_paciente + ", email_paciente=" + email_paciente + ", rol_paciente="
-				+ rol_paciente + ", citas=" + citas + "]";
+				+ rol_paciente + "]";
 	}
+
+	
 
 	
 	
