@@ -30,7 +30,11 @@ public class Medico {
 	@Column
 	private int id_localidad;
 	
-	
+	public Medico() {
+		
+	}
+
+
 	@ManyToOne
 	@JoinColumn(name="id_localidad", insertable=false,updatable=false)
 	private Localidad localidad;

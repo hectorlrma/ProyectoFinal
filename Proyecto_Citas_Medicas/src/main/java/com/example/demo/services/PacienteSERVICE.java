@@ -36,7 +36,16 @@ public class PacienteSERVICE implements IPacienteSERVICE {
 	}
 
 	@Override
-	public void addPaciente(Paciente paciente) {
+	public void addPaciente(PacienteDTO pacienteDTO) {
+		
+		Paciente paciente = new Paciente();
+		
+		paciente.setNick_paciente(pacienteDTO.getNick_paciente());
+		paciente.setNombre_paciente(pacienteDTO.getNombre_paciente());
+		paciente.setEmail_paciente(pacienteDTO.getEmail_paciente());
+		paciente.setPassword_paciente(pacienteDTO.getPassword_paciente());
+		paciente.setRol_paciente(pacienteDTO.getRol_paciente());
+		paciente.setCitas(pacienteDTO.getCitas());
 		
 		pacienteRepository.save(paciente);
 		

@@ -1,9 +1,7 @@
 package com.example.demo.interfaces;
 
-import java.util.Date;
 import java.util.List;
 
-import com.example.demo.beans.Medico;
 import com.example.demo.dto.MedicoDTO;
 
 public interface IMedicoSERVICE {
@@ -12,7 +10,7 @@ public interface IMedicoSERVICE {
 	
 	public MedicoDTO buscarMedico(String nick_medico);
 	
-	public void addMedico (Medico medico);
+	public void addMedico (MedicoDTO medicoDTO);
 
 	List<MedicoDTO> buscarMedicoPorLocalidadAndByEspecialidad(int id_localidad, int id_espcialidad);
 	

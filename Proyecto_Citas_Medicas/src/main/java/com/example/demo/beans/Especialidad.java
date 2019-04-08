@@ -20,9 +20,6 @@ public class Especialidad {
 	@Column
 	private String nombre_especialidad;
 	
-	@Column
-	private String nick_medico;
-	
 	@OneToMany
 	@JoinColumn(name="id_especialidad",insertable = false, updatable = false)
 	private List<Medico> medicos;
@@ -43,14 +40,6 @@ public class Especialidad {
 		this.nombre_especialidad = nombre_especialidad;
 	}
 
-	public String getNick_medico() {
-		return nick_medico;
-	}
-
-	public void setNick_medico(String nick_medico) {
-		this.nick_medico = nick_medico;
-	}
-
 	public List<Medico> getMedicos() {
 		return medicos;
 	}
@@ -62,7 +51,7 @@ public class Especialidad {
 	@Override
 	public String toString() {
 		return "Especialidad [id_especialidad=" + id_especialidad + ", nombre_especialidad=" + nombre_especialidad
-				+ ", nick_medico=" + nick_medico + ", medicos=" + medicos + "]";
+				+ ", medicos=" + medicos + "]";
 	}
 	
 	

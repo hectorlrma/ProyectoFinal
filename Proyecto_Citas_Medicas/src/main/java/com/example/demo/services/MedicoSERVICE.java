@@ -56,9 +56,21 @@ public class MedicoSERVICE implements IMedicoSERVICE {
 	}
 
 	@Override
-	public void addMedico(Medico medico) {
+	public void addMedico(MedicoDTO medicoDTO) {
 	
+		Medico medico = new Medico();
+		
+		medico.setNick_medico(medicoDTO.getNick_medico());
+		medico.setNombre_medico(medicoDTO.getNombre_medico());
+		medico.setPassword_medico(medicoDTO.getPassword_medico());
+		medico.setEmail_medico(medicoDTO.getEmail_medico());
+		medico.setRol_medico(medicoDTO.getRol_medico());
+		medico.setId_localidad(medicoDTO.getId_localidad());
+		medico.setEmail_medico(medicoDTO.getEmail_medico());
+		medico.setCitas(medicoDTO.getCitas());
+		
 		medicoRepository.save(medico);
+		
 		
 	}
 
