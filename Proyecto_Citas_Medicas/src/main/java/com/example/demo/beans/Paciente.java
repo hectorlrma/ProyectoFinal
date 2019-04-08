@@ -23,7 +23,7 @@ public class Paciente {
 	@Column
 	private String email_paciente;
 	@Column
-	private int rol_paciente;
+	private String rol_paciente;
 	
 	@OneToMany
 	@JoinColumn(name="nick_paciente",insertable = false, updatable = false)
@@ -61,11 +61,11 @@ public class Paciente {
 		this.email_paciente = email_paciente;
 	}
 
-	public int getRol_paciente() {
+	public String getRol_paciente() {
 		return rol_paciente;
 	}
 
-	public void setRol_paciente(int rol_paciente) {
+	public void setRol_paciente(String rol_paciente) {
 		this.rol_paciente = rol_paciente;
 	}
 

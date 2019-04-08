@@ -14,12 +14,12 @@ public class PacienteDTO {
 	
 	private String email_paciente;
 	
-	private int rol_paciente;
+	private String rol_paciente;
 	
 	private List<Cita> citas;
 
 	public PacienteDTO(String nick_paciente, String nombre_paciente, String password_paciente, String email_paciente,
-			int rol_paciente, List<Cita> citas) {
+			String rol_paciente, List<Cita> citas) {
 		super();
 		this.nick_paciente = nick_paciente;
 		this.nombre_paciente = nombre_paciente;
@@ -65,11 +65,11 @@ public class PacienteDTO {
 		this.email_paciente = email_paciente;
 	}
 
-	public int getRol_paciente() {
+	public String getRol_paciente() {
 		return rol_paciente;
 	}
 
-	public void setRol_paciente(int rol_paciente) {
+	public void setRol_paciente(String rol_paciente) {
 		this.rol_paciente = rol_paciente;
 	}
 
