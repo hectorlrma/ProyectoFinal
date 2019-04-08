@@ -97,7 +97,7 @@ public class Medico {
 	}
 
 
-	public int getId_especialidad(int id_especialidad) {
+	public int getId_especialidad() {
 		return id_especialidad;
 	}
 
@@ -155,10 +155,7 @@ public class Medico {
 				+ ", id_especialidad=" + id_especialidad + ", id_localidad=" + id_localidad + ", localidad="
 				+ localidad + ", citas=" + citas + "]";
 	}
-	
-	
-	
-	
-	
+
+
 	
 }

@@ -28,7 +28,7 @@ public class MedicoSERVICE implements IMedicoSERVICE {
 		
 		for (Medico medico : lista) {
 			listaDTO.add(new MedicoDTO(medico.getNick_medico(), medico.getNombre_medico(), medico.getPassword_medico(), medico.getEmail_medico(), medico.getRol_medico(),
-					    medico.getEspecialidad_medico(), medico.getId_localidad()));
+					    medico.getId_especialidad(), medico.getId_localidad()));
 		
 		}
 	
@@ -44,7 +44,7 @@ public class MedicoSERVICE implements IMedicoSERVICE {
 		{
 			Medico medico = medicoOp.get();
 			MedicoDTO medicoDTO = new MedicoDTO(medico.getNick_medico(), medico.getNombre_medico(), medico.getPassword_medico(), medico.getEmail_medico(), medico.getRol_medico(),
-					medico.getEspecialidad_medico(), medico.getId_localidad());
+					medico.getId_especialidad(), medico.getId_localidad());
 			
 			return medicoDTO;
 		}
