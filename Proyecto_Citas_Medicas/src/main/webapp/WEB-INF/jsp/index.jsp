@@ -279,25 +279,7 @@
     </nav>
     
   </form>
-  <div class="limiter">
-		<div class="container-table100">
-			<div class="wrap-table100">
-				<div class="table100 ver1 m-b-110">
-					<div class="table100-head">
-						<table>
-							<thead>
-								<tr class="row100 head">
-									<th class="cell100 column1">Class name</th>
-									<th class="cell100 column2">Type</th>
-									<th class="cell100 column3">Hours</th>
-									<th class="cell100 column4">Trainer</th>
-									<th class="cell100 column5">Spots</th>
-								</tr>
-							</thead>
-						</table>
-					</div>
-					</div>
-					z
+ 
 
 </body>
 </html>
