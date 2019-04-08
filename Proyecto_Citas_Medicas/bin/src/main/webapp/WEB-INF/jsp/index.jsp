@@ -256,7 +256,26 @@
   <ul></ul>
   <ul></ul>
   
-      
+     <select name="cars" class="custom-select mb-3">
+      <option selected>Elige Especialidad</option>
+      <c:forEach var="especialidad" items="${especialidades}">
+       <option value="${especialidad.id_especialidad}">${especialidad.nombre_especialidad}</option>
+       </c:forEach>
+    </select>
+ 
+ 
+     <select name="cars" class="custom-select mb-3">
+    <option selected>Elige Localidad</option>
+      <c:forEach var="localidad" items="${localidades}">
+       <option value="${localidad.id_localidad}">${localidad.nombre_localidad}</option>
+       </c:forEach>
+     </select>
+  <ul><button type="submit" class="btn btn-primary">Buscar</button></ul>
+
+
+   
+  
+    
     </nav>
     
   </form>

@@ -25,35 +25,75 @@
       <a class="nav-link" href="/index" style="color: #8331CC">CITALIA</a>
     </li>
   </ul>
+  </nav>
+<form action="/buscar">
+ <nav class="navbar navbar-expand-sm" style="background-color: #2BD1E8 ">
+  <ul></ul>
+  <ul></ul>
+  <ul></ul>
+  <ul></ul>
   
-  
-<ul></ul>
-<ul></ul>
-<ul></ul>
-<ul></ul>
-        </nav>
+     <select name="especialidad" class="custom-select mb-3">
+      <option selected>Elige Especialidad</option>
+      <c:forEach var="especialidad" items="${especialidades}">
+       <option value="${especialidad.id_especialidad}">${especialidad.nombre_especialidad}</option>
+       </c:forEach>
+    </select>
+ 
+ 
+     <select name="localidad" class="custom-select mb-3">
+    <option selected>Elige Localidad</option>
+      <c:forEach var="localidad" items="${localidades}">
+       <option value="${localidad.id_localidad}">${localidad.nombre_localidad}</option>
+       </c:forEach>
+     </select>
+  <ul><button type="submit" class="btn btn-primary"><strong>Buscar</strong></button></ul>
+    
+    </nav>
+  </form>
+  <nav class="navbar navbar-expand-sm">
+  <ul></ul>
+  <ul></ul>
+  <ul></ul>
+  <ul></ul>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="/citaHoyPac" style="color: #8331CC">Citas de Hoy</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="/citaproximapac" style="color: #8331CC">Próximas citas</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="/citaantiguapac" style="color: #8331CC">Citas antiguas</a>
+    </li>
+  </ul>
+  </nav>
+       
         
-        
-         <div class="limiter">
-		<div class="container-table100">
-			<div class="wrap-table100">
-				<div class="table100 ver1 m-b-110">
-					<div class="table100-head">
-						<table>
+          <div class="container">
+        			<table class="table">
 							<thead>
-								<tr class="row100 head">
-									<th class="cell100 column1">Class name</th>
-									<th class="cell100 column2">Type</th>
-									<th class="cell100 column3">Hours</th>
-									<th class="cell100 column4">Trainer</th>
-									<th class="cell100 column5">Spots</th>
+								<tr style="text-align: center">
+									<th><strong>ID Cita</strong></th>
+									<th><strong>Médico</strong></th>
+									<th><strong>Fecha</strong></th>
+									<th><strong>Hora</strong></th>
+									
 								</tr>
 							</thead>
+							<c:forEach var="cita" items="${cita_paciente}">
+							<tr style="text-align: center">
+							<td>${cita.id_cita}</td>
+							<td>${cita.nick_medico}</td>
+							<td>${cita.fecha_cita}</td>
+							<td>${cita.hora_cita}</td>
+						
+							
+							</tr>
+								</c:forEach>
 						</table>
-					</div>
-					</div>
-					</div>
-					</div>
-					</div>
+						</div>
+ 
+        
 </body>
 </html>
