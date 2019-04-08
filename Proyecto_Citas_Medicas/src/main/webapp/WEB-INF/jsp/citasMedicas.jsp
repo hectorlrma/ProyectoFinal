@@ -32,39 +32,42 @@
   <ul></ul>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="/citaHoyMed" style="color: #8331CC">Citas de Hoy</a>
+      <a class="nav-link" type="button"  href="/citaHoyMed" style="color: #8331CC">Citas de Hoy</a>
     </li>
      <li class="nav-item">
-      <a class="nav-link" href="/citaproximamed" style="color: #8331CC">Próximas citas</a>
+      <a class="nav-link" type="button"  href="/citaproximamed" style="color: #8331CC">Próximas citas</a>
     </li>
      <li class="nav-item">
-      <a class="nav-link" href="/citaantiguamed" style="color: #8331CC">Citas antiguas</a>
+      <a class="nav-link" type="button"  href="/citaantiguamed" style="color: #8331CC">Citas antiguas</a>
     </li>
      <li class="nav-item">
-      <a class="nav-link" href="/citaconfirmada" style="color: #8331CC">Citas confirmadas</a>
+      <a class="nav-link" type="button" href="/citaconfirmada" style="color: #8331CC">Citas confirmadas</a>
     </li>
   </ul>
   </nav>
-       
-        			<table>
+       <div class="container">
+        			<table class="table">
 							<thead>
-								<tr>
-									<th>Médico</th>
-									<th>Fecha</th>
-									<th>Hora</th>
+								<tr style="text-align: center">
+									<th><strong>ID Cita</strong></th>
+									<th><strong>Médico</strong></th>
+									<th><strong>Fecha</strong></th>
+									<th><strong>Hora</strong></th>
 									
 								</tr>
 							</thead>
-							<tr>
 							<c:forEach var="cita" items="${cita_medico}">
+							<tr style="text-align: center">
+							<td>${cita.id_cita}</td>
 							<td>${cita.nick_medico}</td>
 							<td>${cita.fecha_cita}</td>
-							<td>${cita.hora_cita}
-							</c:forEach>
+							<td>${cita.hora_cita}</td>
+						
 							
 							</tr>
+								</c:forEach>
 						</table>
 					
- 
+ </div>
 </body>
 </html>

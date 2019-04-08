@@ -71,35 +71,29 @@
   </nav>
        
         
-          <div class="limiter">
-		<div class="container-table100">
-			<div class="wrap-table100">
-				<div class="table100 ver1 m-b-110">
-					<div class="table100-head">
-						<table>
+          <div class="container">
+        			<table class="table">
 							<thead>
-								<tr class="row100 head">
-									<th class="cell100 column1">Médico</th>
-									<th class="cell100 column4">Fecha</th>
-									<th class="cell100 column4">Hora</th>
+								<tr style="text-align: center">
+									<th><strong>ID Cita</strong></th>
+									<th><strong>Médico</strong></th>
+									<th><strong>Fecha</strong></th>
+									<th><strong>Hora</strong></th>
 									
 								</tr>
 							</thead>
 							<c:forEach var="cita" items="${cita_paciente}">
-							<tr>
-							
+							<tr style="text-align: center">
+							<td>${cita.id_cita}</td>
 							<td>${cita.nick_medico}</td>
 							<td>${cita.fecha_cita}</td>
-							
+							<td>${cita.hora_cita}</td>
+						
 							
 							</tr>
-							</c:forEach>
+								</c:forEach>
 						</table>
-					</div>
-					</div>
-					</div>
-					</div>
-					</div>
+						</div>
  
 </body>
 </html>
