@@ -54,7 +54,7 @@
   </ul>
 
 <!-- Modal Inicio Sesion -->
-<div class="modal fade" id="logInPacienteModal" tabindex="-1" role="dialog" aria-labelledby="logInModalLabel" aria-hidden="true">
+<div class="modal fade" id="logInMedicoModal" tabindex="-1" role="dialog" aria-labelledby="logInModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -63,7 +63,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="loginpaciente">
+      <form action="loginmedico">
       <div class="modal-body">
    <div class="form-group">
     <label for="exampleInputPassword">Nick</label>
@@ -96,7 +96,7 @@
 </div>
 <ul></ul>
 
-<div class="modal fade" id="logInMedicoModal" tabindex="-1" role="dialog" aria-labelledby="logInModalLabel" aria-hidden="true">
+<div class="modal fade" id="logInPacienteModal" tabindex="-1" role="dialog" aria-labelledby="logInModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -105,15 +105,15 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="loginmedico">
+      <form action="loginpaciente">
       <div class="modal-body">
    <div class="form-group">
-    <label for="exampleInputPassword">Nick</label>
-    <input type="text" class="form-control" id="exampleInputPassword" placeholder="Introduce tu nick">
+    <label for="nick_paciente">Nick</label>
+    <input type="text" class="form-control" id="nick_paciente" name="nick_paciente" placeholder="Introduce tu nick">
   </div>      
    <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Introduce tu password">
+    <label for="password_paciente">Password</label>
+    <input type="password" class="form-control" id="password_paciente" name="password_paciente" placeholder="Introduce tu password">
   </div>
     <div class="form-group">
      <button type="submit" class="btn btn-primary">Log in</button>
@@ -188,20 +188,20 @@
       <form action="registroMedico">
       <div class="modal-body">
         <div class="form-group">
-    <label for="exampleInputPassword">Nick</label>
-    <input type="text" class="form-control"  value="${medicoDTO.nick_medico}" id="nick_medico" placeholder="Introduce tu nick">
+    <label for="nick_medico">Nick</label>
+    <input type="text" class="form-control"  value="${medicoDTO.nick_medico}" id="nick_medico" name="nick_medico" placeholder="Introduce tu nick">
   </div>      
    <div class="form-group">
-    <label for="exampleInputPassword1">Nombre</label>
-    <input type="text" class="form-control" value="${medicoDTO.nombre_medico}" id="nombre_medico" placeholder="Introduce tu password">
+    <label for="nombre_medico">Nombre</label>
+    <input type="text" class="form-control" value="${medicoDTO.nombre_medico}" id="nombre_medico" name="nombre_medico" placeholder="Introduce tu password">
   </div>
    <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" value="${medicoDTO.password_medico}" id="password_medico" placeholder="Introduce tu password">
+    <label for="password_medico">Password</label>
+    <input type="password" class="form-control" value="${medicoDTO.password_medico}" id="password_medico" name="password_medico" placeholder="Introduce tu password">
   </div>
  <div class="form-group">
-    <label for="exampleInputEmail1">Email</label>
-    <input type="email" class="form-control" value="${medicoDTO.email_medico}" id="email_medico" aria-describedby="emailHelp" placeholder="Introduce tu email">
+    <label for="email_medico">Email</label>
+    <input type="email" class="form-control" value="${medicoDTO.email_medico}" id="email_medico" name="email_medico" aria-describedby="emailHelp" placeholder="Introduce tu email">
    <!--  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
   </div>
   <div class="form-group">
