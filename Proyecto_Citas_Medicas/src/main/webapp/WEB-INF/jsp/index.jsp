@@ -67,7 +67,7 @@
       <div class="modal-body">
    <div class="form-group">
     <label for="nombre_medico">Nick</label>
-    <input type="text" class="form-control" id="nick_medico" name="nombre_medico" placeholder="Introduce tu nick">
+    <input type="text" class="form-control" id="nick_medico" name="nick_medico" placeholder="Introduce tu nick">
   </div>      
    <div class="form-group">
     <label for="password_medico">Password</label>
