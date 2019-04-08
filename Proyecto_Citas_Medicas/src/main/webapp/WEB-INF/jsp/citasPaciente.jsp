@@ -59,7 +59,7 @@
   <ul></ul>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="/loginpaciente" style="color: #8331CC">Citas de Hoy</a>
+      <a class="nav-link" href="/citaHoyPac" style="color: #8331CC">Citas de Hoy</a>
     </li>
      <li class="nav-item">
       <a class="nav-link" href="/citaproximapac" style="color: #8331CC">Próximas citas</a>
