@@ -65,6 +65,7 @@ public class MedicoSERVICE implements IMedicoSERVICE {
 		medico.setRol_medico(medicoDTO.getRol_medico());
 		medico.setId_localidad(medicoDTO.getId_localidad());
 		medico.setEmail_medico(medicoDTO.getEmail_medico());
+		medico.setId_especialidad(medicoDTO.getId_Especialidad());
 		medico.setCitas(medicoDTO.getCitas());
 		
 		medicoRepository.save(medico);
