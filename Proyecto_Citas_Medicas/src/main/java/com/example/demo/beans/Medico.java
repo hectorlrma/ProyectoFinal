@@ -26,7 +26,7 @@ public class Medico {
 	@Column
 	private String rol_medico;
 	@Column
-	private String especialidad_medico;
+	private int id_especialidad;
 	@Column
 	private int id_localidad;
 	
@@ -97,13 +97,13 @@ public class Medico {
 	}
 
 
-	public String getEspecialidad_medico() {
-		return especialidad_medico;
+	public int getId_especialidad(int id_especialidad) {
+		return id_especialidad;
 	}
 
 
-	public void setEspecialidad_medico(String especialidad_medico) {
-		this.especialidad_medico = especialidad_medico;
+	public void setId_especialidad(int id_especialidad) {
+		this.id_especialidad = id_especialidad;
 	}
 
 
@@ -152,7 +152,7 @@ public class Medico {
 	public String toString() {
 		return "Medico [nick_medico=" + nick_medico + ", nombre_medico=" + nombre_medico + ", password_medico="
 				+ password_medico + ", email_medico=" + email_medico + ", rol_medico=" + rol_medico
-				+ ", especialidad_medico=" + especialidad_medico + ", id_localidad=" + id_localidad + ", localidad="
+				+ ", id_especialidad=" + id_especialidad + ", id_localidad=" + id_localidad + ", localidad="
 				+ localidad + ", citas=" + citas + "]";
 	}
 	

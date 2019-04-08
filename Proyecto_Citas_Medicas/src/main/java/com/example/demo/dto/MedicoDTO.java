@@ -17,21 +17,21 @@ public class MedicoDTO {
 	
 	private String rol_medico;
 	
-	private String especialidad_medico;
+	private int id_especialidad;
 	
 	private int id_localidad;
 	
 	private List<Cita> citas;
 
 	public MedicoDTO(String nick_medico, String nombre_medico, String password_medico, String email_medico,
-			String rol_medico, String especialidad_medico, int id_localidad) {
+			String rol_medico, int id_especialidad, int id_localidad) {
 		super();
 		this.nick_medico = nick_medico;
 		this.nombre_medico = nombre_medico;
 		this.password_medico = password_medico;
 		this.email_medico = email_medico;
 		this.rol_medico = rol_medico;
-		this.especialidad_medico = especialidad_medico;
+		this.id_especialidad = id_especialidad;
 		this.id_localidad = id_localidad;
 	}
 
@@ -79,12 +79,12 @@ public class MedicoDTO {
 		this.rol_medico = rol_medico;
 	}
 
-	public String getEspecialidad_medico() {
-		return especialidad_medico;
+	public int getId_Especialidad() {
+		return id_especialidad;
 	}
 
-	public void setEspecialidad_medico(String especialidad_medico) {
-		this.especialidad_medico = especialidad_medico;
+	public void setId_especialidad(int id_especialidad) {
+		this.id_especialidad = id_especialidad;
 	}
 
 	public int getId_localidad() {
@@ -107,7 +107,7 @@ public class MedicoDTO {
 	public String toString() {
 		return "MedicoDTO [nick_medico=" + nick_medico + ", nombre_medico=" + nombre_medico + ", password_medico="
 				+ password_medico + ", email_medico=" + email_medico + ", rol_medico=" + rol_medico
-				+ ", especialidad_medico=" + especialidad_medico + ", id_localidad=" + id_localidad + ", citas=" + citas
+				+ ", id_especialidad=" + id_especialidad + ", id_localidad=" + id_localidad + ", citas=" + citas
 				+ "]";
 	}
 	
