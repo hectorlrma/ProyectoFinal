@@ -1,9 +1,12 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
+<%@ page import='com.example.demo.dto.MedicoDTO' %>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -95,6 +98,7 @@
 						</div>
   
   <div class="container">
+
         			<table class="table">
 							<thead>
 								<tr style="text-align: center">
@@ -118,8 +122,56 @@
 								</c:forEach>
 						</table>
 						</div>
+<div class="container">
+<div class="floatLeft">
+<tr><table class="table">
+							<thead>
+								<tr style="text-align: center">
+									<th><strong>ID Cita</strong></th>
+									<th><strong>Médico</strong></th>
+									<th><strong>Fecha</strong></th>
+									<th><strong>Hora</strong></th>
+									
+								</tr>
+							</thead>
+							<c:forEach var="medico" items="${medicoDTO}">
+							<tr style="text-align: center">
+							<td>${medico.nombre_medico}</td>
+							<td>${medico.nick_medico}</td>
+							<td>${medico.email_medico}</td>
+				
+						
+							
+							</tr>
+								</c:forEach>
+						</table>
+</div>
 
- 
+<div class="floatRight">
+<tr><table class="table">
+							<thead>
+								<tr style="text-align: center">
+									<th><strong>ID Cita</strong></th>
+									<th><strong>Médico</strong></th>
+									<th><strong>Fecha</strong></th>
+									<th><strong>Hora</strong></th>
+									
+								</tr>
+							</thead>
+							<c:forEach var="cita" items="${citaMedicosDTO}">
+							<tr style="text-align: center">
+							<td>${cita.id_cita}</td>
+							<td>${cita.nick_medico}</td>
+							<td>${cita.fecha_cita}</td>
+							<td>${cita.hora_cita}</td>
+							<td><a class="nav-link" href="/pideCita?id_cita=${cita.id_cita}" style="color: #8331CC">Pedir cita</a></td>
+						
+					
+							</tr>
+								</c:forEach>
+						</table>
+</div>
+</div> 
         
 </body>
 </html>
