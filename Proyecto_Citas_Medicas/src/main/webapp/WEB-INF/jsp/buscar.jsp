@@ -73,29 +73,6 @@
   </ul>
   </nav>
 
-  <div class="container">
-        			<table class="table">
-							<thead>
-								<tr style="text-align: center">
-									<th><strong>ID Cita</strong></th>
-									<th><strong>Médico</strong></th>
-									<th><strong>Fecha</strong></th>
-									<th><strong>Hora</strong></th>
-									
-								</tr>
-							</thead>
-							<c:forEach var="medico" items="${medicoDTO}">
-							<tr style="text-align: center">
-							<td>${medico.nombre_medico}</td>
-							<td>${medico.nick_medico}</td>
-							<td>${medico.email_medico}</td>
-				
-						
-							
-							</tr>
-								</c:forEach>
-						</table>
-						</div>
   
   <div class="container">
 
@@ -112,7 +89,7 @@
 							<c:forEach var="cita" items="${citaMedicosDTO}">
 							<tr style="text-align: center">
 							<td>${cita.id_cita}</td>
-							<td>${cita.nick_medico}</td>
+							<td><a class="nav-link" href="/detalleMedico?nick_medico=${cita.nick_medico}" style="color: #8331CC">Pedir cita</a>${cita.nick_medico}</td>
 							<td>${cita.fecha_cita}</td>
 							<td>${cita.hora_cita}</td>
 							<td><a class="nav-link" href="/pideCita?id_cita=${cita.id_cita}" style="color: #8331CC">Pedir cita</a></td>
@@ -122,56 +99,7 @@
 								</c:forEach>
 						</table>
 						</div>
-<div class="container">
-<div class="floatLeft">
-<table class="table">
-							<thead>
-								<tr style="text-align: center">
-									<th><strong>ID Cita</strong></th>
-									<th><strong>Médico</strong></th>
-									<th><strong>Fecha</strong></th>
-									<th><strong>Hora</strong></th>
-									
-								</tr>
-							</thead>
-							<c:forEach var="medico" items="${medicoDTO}">
-							<tr style="text-align: center">
-							<td>${medico.nombre_medico}</td>
-							<td>${medico.nick_medico}</td>
-							<td>${medico.email_medico}</td>
-				
-						
-							
-							</tr>
-								</c:forEach>
-						</table>
-</div>
 
-<div class="floatRight">
-<table class="table">
-							<thead>
-								<tr style="text-align: center">
-									<th><strong>ID Cita</strong></th>
-									<th><strong>Médico</strong></th>
-									<th><strong>Fecha</strong></th>
-									<th><strong>Hora</strong></th>
-									
-								</tr>
-							</thead>
-							<c:forEach var="cita" items="${citaMedicosDTO}">
-							<tr style="text-align: center">
-							<td>${cita.id_cita}</td>
-							<td>${cita.nick_medico}</td>
-							<td>${cita.fecha_cita}</td>
-							<td>${cita.hora_cita}</td>
-							<td><a class="nav-link" href="/pideCita?id_cita=${cita.id_cita}" style="color: #8331CC">Pedir cita</a></td>
-						
-					
-							</tr>
-								</c:forEach>
-						</table>
-</div>
-</div> 
         
 </body>
 </html>
