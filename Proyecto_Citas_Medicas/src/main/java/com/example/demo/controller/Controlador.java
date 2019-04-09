@@ -481,7 +481,7 @@ public class Controlador {
 	@RequestMapping("/detalleMedico") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
 	public String detalleMedico(HttpServletRequest request) {
 		HttpSession session = request.getSession(true); // abro sesion
-		System.out.println("TRAZA CANCELAR CITA");
+		System.out.println("TRAZA DETALLE MEDICO");
 		String nick_medico = request.getParameter("nick_medico");
 		MedicoDTO medicoDTO=medicoSERVICE.buscarMedicoDTO(nick_medico);
 		request.setAttribute("medicoDTO", medicoDTO);
