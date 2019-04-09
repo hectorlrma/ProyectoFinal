@@ -95,7 +95,7 @@
 							<td>${cita.fecha_cita}</td>
 							<td>${cita.hora_cita}</td>
 							<td><a class="nav-link" href="/pideCita?id_cita=${cita.id_cita}" style="color: #8331CC">Pedir cita</a></td>
-							<tr>
+							</tr>
 							</c:if>
 							</c:forEach>
 							
