@@ -89,7 +89,7 @@
 							<c:forEach var="cita" items="${citaMedicosDTO}">
 							<tr style="text-align: center">
 							<td>${cita.id_cita}</td>
-							<td><a class="nav-link" href="/detalleMedico?nick_medico=${cita.nick_medico}" style="color: #8331CC">Pedir cita</a>${cita.nick_medico}</td>
+							<td><a class="nav-link" href="/detalleMedico?nick_medico=${cita.nick_medico}" style="color: #8331CC">${cita.nick_medico}</a></td>
 							<td>${cita.fecha_cita}</td>
 							<td>${cita.hora_cita}</td>
 							<td><a class="nav-link" href="/pideCita?id_cita=${cita.id_cita}" style="color: #8331CC">Pedir cita</a></td>
