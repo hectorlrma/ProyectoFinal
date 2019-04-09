@@ -62,6 +62,7 @@
 							<td>${cita.nick_medico}</td>
 							<td>${cita.fecha_cita}</td>
 							<td>${cita.hora_cita}</td>
+							<td><a href="/borrarcita?id_cita=${cita.id_cita}" type="button" class="btn btn-danger">Borrar</a></td>
 						
 							
 							</tr>

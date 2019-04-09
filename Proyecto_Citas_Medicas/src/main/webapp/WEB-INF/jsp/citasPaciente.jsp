@@ -13,7 +13,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<style type='text/css'>
+ 
+tr:nth-child(odd) {
+    background-color:#B99EF3;
+}
+tr:nth-child(even) {
+    background-color:#9778DC;
+}
+ 
+</style>	
+<title>Citas Paciente</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-sm" style="background-color: #2BD1E8 ">
@@ -48,7 +58,7 @@
        <option value="${localidad.id_localidad}">${localidad.nombre_localidad}</option>
        </c:forEach>
      </select>
-  <ul><button type="submit" class="btn btn-primary">Buscar</button></ul>
+  <ul><button type="submit" class="btn btn-primary"><strong>Buscar</strong></button></ul>
     
     </nav>
   </form>
@@ -72,13 +82,13 @@
        
         
           <div class="container">
-        			<table class="table">
+        			<table id="tablePreview" class="table table-striped table-hover table-bordered">
 							<thead>
 								<tr style="text-align: center">
-									<th><strong>ID Cita</strong></th>
-									<th><strong>Médico</strong></th>
-									<th><strong>Fecha</strong></th>
-									<th><strong>Hora</strong></th>
+									<th scope="row"><strong>ID Cita</strong></th>
+									<th scope="row"><strong>Médico</strong></th>
+									<th scope="row"><strong>Fecha</strong></th>
+									<th scope="row"><strong>Hora</strong></th>
 									
 								</tr>
 							</thead>
@@ -88,6 +98,7 @@
 							<td>${cita.nick_medico}</td>
 							<td>${cita.fecha_cita}</td>
 							<td>${cita.hora_cita}</td>
+							<td><a href= "" type="button" class="btn btn-danger"></a></td>
 						
 							
 							</tr>
