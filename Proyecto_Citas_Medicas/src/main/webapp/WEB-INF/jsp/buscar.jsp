@@ -89,18 +89,23 @@
 							<c:forEach var="medico" items="${medicoDTO}">
 							<tr style="text-align: center">
 							<td>${medico.nick_medico}</td>
-							<td>
 							<c:forEach var="cita" items="${citaMedicosDTO}">
 							<c:if test="${cita.nick_medico==medico.nick_medico}">
+							<%int count = 0; %>
+							<c:if test="${count == 0}">
+							
+							<td>${cita.fecha_cita}</td>
+							<td>${cita.hora_cita}</td>
+							<td><a class="nav-link" href="/pideCita?id_cita=${cita.id_cita}" style="color: #8331CC">Pedir cita</a></td>
+							<%count ++; %>
+							</c:if>
 							<tr>
 							<td>${cita.fecha_cita}</td>
 							<td>${cita.hora_cita}</td>
 							<td><a class="nav-link" href="/pideCita?id_cita=${cita.id_cita}" style="color: #8331CC">Pedir cita</a></td>
 							</tr>
-							
 							</c:if>
 							</c:forEach>
-							</td>
 							</tr>
 								</c:forEach>
 						</table>
