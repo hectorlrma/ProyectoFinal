@@ -34,7 +34,7 @@ public class EspecialidadSERVICE implements IEspecialidadSERVICE {
 	}
 
 	@Override
-	public EspecialidadDTO buscarLocalidadDTO(int id_especialidad) {
+	public EspecialidadDTO buscarEspecialidadDTO(int id_especialidad) {
 		Optional<Especialidad> especialidadOp = especialidadRepository.findById(id_especialidad);
 		
 		if(especialidadOp.isPresent()) {

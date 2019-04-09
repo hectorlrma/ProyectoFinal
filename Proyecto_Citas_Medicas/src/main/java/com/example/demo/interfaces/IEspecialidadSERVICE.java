@@ -9,7 +9,7 @@ public interface IEspecialidadSERVICE {
 
 	public List<EspecialidadDTO> listarEspecialidades();
 	
-	public EspecialidadDTO buscarLocalidadDTO(int id_especialidad);
+	public EspecialidadDTO buscarEspecialidadDTO(int id_especialidad);
 	
 	
 }
