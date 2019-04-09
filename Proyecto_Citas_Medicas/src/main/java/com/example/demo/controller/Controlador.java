@@ -138,7 +138,7 @@ public class Controlador {
 		
 		request.setAttribute("cita_paciente", citadia);
 		session.setAttribute("nick_paciente", nick_paciente);
-		//		return "medico";
+
 		return "citasPaciente";
 	}
 	@RequestMapping("/loginmedico") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
@@ -318,7 +318,7 @@ public class Controlador {
 	public String altacita(HttpServletRequest request, @ModelAttribute CitaDTO citaDTO) {
 		HttpSession session = request.getSession(true); // abro sesion
 		System.out.println("TRAZA ALTA CITA");
-//		citaSERVICE.altaCita(citaDTO);
+		citaSERVICE.altaCita(citaDTO);
 		return "altacita";
 	}
  
@@ -383,14 +383,50 @@ public class Controlador {
 	}
 	
 	@RequestMapping("/buscar") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
-	public String altacita(HttpServletRequest request) {
+	public String buscar(HttpServletRequest request) {
 		HttpSession session = request.getSession(true); // abro sesion
 		System.out.println("TRAZA ALTA CITA");
-		String id_especialidad=(String) request.getParameter("id_especialidad");
-		String id_localidad=(String) request.getParameter("id_localidad");
+		int id_especialidad=Integer.parseInt(request.getParameter("especialidad"));
+		int id_localidad=Integer.parseInt(request.getParameter("localidad"));
 		System.out.println("especialidad: "+id_especialidad);
 		System.out.println("localidad: "+id_localidad);
+		List<MedicoDTO> medicoDTO=medicoSERVICE.findByLocalidadAndEspecialidad2(id_localidad, id_especialidad);
+		System.out.println("medicoDTO: "+medicoDTO);
+		List<Cita> citadia = new ArrayList<Cita>();
+		for (MedicoDTO medicoDTO2 : medicoDTO) {
+			citadia = medicoDTO2.getCitas();
+		}
+		System.out.println("citaMedicosDTO: "+citadia);
+		request.setAttribute("citaMedicosDTO", citadia);
+		request.setAttribute("medicoDTO", medicoDTO);
 //		citaSERVICE.altaCita(citaDTO);
 		return "buscar";
+	}
+/*	@RequestMapping("/modificaCita") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
+	public String modificaCita(HttpServletRequest request, @ModelAttribute CitaDTO citaDTO) {
+		HttpSession session = request.getSession(true); // abro sesion
+		System.out.println("TRAZA MODIFICA CITA");
+		String nick_paciente = (String)session.getAttribute("nick_paciente");
+		citaDTO.setNick_paciente(nick_paciente);
+		System.out.println("citaDTO: "+citaDTO);
+		citaSERVICE.modificarCita(citaDTO);
+		
+		request.setAttribute("cita_paciente", citaDTO);
+		return "citasPaciente";
+	}*/
+	
+	@RequestMapping("/pideCita") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
+	public String pideCita(HttpServletRequest request) {
+		HttpSession session = request.getSession(true); // abro sesion
+		System.out.println("TRAZA PIDE CITA");
+		String nick_paciente = (String)session.getAttribute("nick_paciente");
+		int id_cita = (int) request.getAttribute("id_cita");
+		System.out.println("id_cita: "+id_cita);
+		CitaDTO citaDTO=citaSERVICE.buscarCitaDTO(id_cita);
+		citaDTO.setNick_paciente(nick_paciente);
+		System.out.println("citaDTO: "+citaDTO);
+		citaSERVICE.modificarCita(citaDTO);
+		request.setAttribute("citaDTO", citaDTO);		
+		return "pideCita";
 	}
 }

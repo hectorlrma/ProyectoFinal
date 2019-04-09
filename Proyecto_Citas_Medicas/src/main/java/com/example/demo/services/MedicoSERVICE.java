@@ -7,7 +7,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import com.example.demo.beans.Medico;
 import com.example.demo.dao.MedicoRepository;
 import com.example.demo.dto.MedicoDTO;
@@ -19,7 +18,7 @@ public class MedicoSERVICE implements IMedicoSERVICE {
 	@Autowired
 	MedicoRepository medicoRepository;
 
-	@Override
+/*	@Override
 	public List<MedicoDTO> buscarMedicoPorLocalidadAndByEspecialidad(int id_localidad, int id_especialidad) {
 		
 		
@@ -35,7 +34,7 @@ public class MedicoSERVICE implements IMedicoSERVICE {
 		return listaDTO;
 		
 	}
-
+*/
 	@Override
 	public MedicoDTO buscarMedicoDTO(String nick_medico) {
 
@@ -73,6 +72,22 @@ public class MedicoSERVICE implements IMedicoSERVICE {
 		
 	}
 
+	@Override
+	public List<MedicoDTO> findByLocalidadAndEspecialidad2(int id_localidad, int id_espcialidad) {
+		Optional<List<Medico>> medicosOpt = medicoRepository.findByLocalidadAndEspecialidad2(id_localidad, id_espcialidad);
+		List<MedicoDTO> medicosDTO = new ArrayList<MedicoDTO>();
+		if (medicosOpt.isPresent()){
+			List<Medico> medicosList = medicosOpt.get();
+			for (Medico medico : medicosList) {
+				MedicoDTO medicoDTO = new MedicoDTO(medico.getNick_medico(), medico.getNombre_medico(),
+				medico.getPassword_medico(), medico.getEmail_medico(), medico.getRol_medico(), 
+				medico.getId_localidad(), medico.getId_localidad(), medico.getCitas());
+				medicosDTO.add(medicoDTO);
+			}
+		}
+		System.out.println("anuncio: "+medicosDTO);
+		return medicosDTO;
+	}
 
 
 }
