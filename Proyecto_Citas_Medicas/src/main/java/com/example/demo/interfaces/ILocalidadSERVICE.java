@@ -9,4 +9,6 @@ public interface ILocalidadSERVICE {
 	
 	public List<LocalidadDTO> listarLocalidades();
 
+	public LocalidadDTO buscarLocalidadDTO(int id_localidad);
+	
 }
