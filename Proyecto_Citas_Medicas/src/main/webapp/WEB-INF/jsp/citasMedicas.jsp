@@ -64,7 +64,13 @@ tr:nth-child(even) {
    <div class="form-group">
     <label for="hora_cita">Hora(hh:mm)</label>
     <input type="text" class="form-control"  value="${citaDTO.hora_cita}" id="hora_cita" name="hora_cita" placeholder="Introduce la hora">
-  </div>   
+  </div> 
+  </div>
+  </form>
+  </div>
+  </div>
+  </div>
+    
         </nav>
 
   <nav class="navbar navbar-expand-sm">
@@ -85,6 +91,7 @@ tr:nth-child(even) {
       <a class="nav-link" type="button" href="/citaconfirmada" style="color: #8331CC">Citas confirmadas</a>
     </li>
   </ul>
+  
   </nav>
        <div class="container">
         			<table id="tablePreview" class="table table-hover table-bordered">
