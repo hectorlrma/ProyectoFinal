@@ -10,6 +10,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style type='text/css'>
+ 
+tr:nth-child(odd) {
+    background-color:#B99EF3;
+}
+tr:nth-child(even) {
+    background-color:#9778DC;
+}
+ 
+</style>
  <title>Insert title here</title>
 </head>
 <body>
@@ -46,13 +56,13 @@
   </ul>
   </nav>
        <div class="container">
-        			<table class="table">
+        			<table id="tablePreview" class="table table-striped table-hover table-bordered">
 							<thead>
 								<tr style="text-align: center">
-									<th><strong>ID Cita</strong></th>
-									<th><strong>Médico</strong></th>
-									<th><strong>Fecha</strong></th>
-									<th><strong>Hora</strong></th>
+									<th scope="row"><strong>ID Cita</strong></th>
+									<th scope="row"><strong>Médico</strong></th>
+									<th scope="row"><strong>Fecha</strong></th>
+									<th scope="row"><strong>Hora</strong></th>
 									
 								</tr>
 							</thead>
@@ -62,6 +72,7 @@
 							<td>${cita.nick_medico}</td>
 							<td>${cita.fecha_cita}</td>
 							<td>${cita.hora_cita}</td>
+							<td><a href="/borrarcita?id_cita=${cita.id_cita}" type="button" class="btn btn-danger">Borrar</a></td>
 						
 							
 							</tr>
