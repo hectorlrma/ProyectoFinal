@@ -25,7 +25,7 @@ tr:nth-child(even) {
 </style>	
 <title>Citas Paciente</title>
 </head>
-<body>
+<body background="imagenes/fondo-paciente.png" >
 <nav class="navbar navbar-expand-sm" style="background-color: #2BD1E8 ">
   <ul></ul>
   <ul></ul>
@@ -33,9 +33,13 @@ tr:nth-child(even) {
   <ul></ul>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="/index" style="color: #8331CC">CITALIA</a>
+      <a class="nav-link" href="/index" style="color: #8331CC; font-size: 25px;"><strong>CITALIA</strong></a>
     </li>
+    
   </ul>
+  <a class="nav-link" href="/citaHoyPac" style="color: #8331CC; font-size: 25px;"><strong>MIS CITAS</strong></a>
+  <ul></ul><ul></ul><ul></ul>
+  
   </nav>
 <form action="/buscar">
  <nav class="navbar navbar-expand-sm" style="background-color: #2BD1E8 ">
@@ -58,8 +62,8 @@ tr:nth-child(even) {
        <option value="${localidad.id_localidad}">${localidad.nombre_localidad}</option>
        </c:forEach>
      </select>
-  <ul><button type="submit" class="btn btn-primary"><strong>Buscar</strong></button></ul>
-    
+     
+  <ul><button type="submit" class="btn btn-primary"><strong>BUSCAR</strong></button></ul>
     </nav>
   </form>
   <nav class="navbar navbar-expand-sm">
@@ -98,7 +102,7 @@ tr:nth-child(even) {
 							<td>${cita.nick_medico}</td>
 							<td>${cita.fecha_cita}</td>
 							<td>${cita.hora_cita}</td>
-							<td><a href= "" type="button" class="btn btn-danger"></a></td>
+							<td><a href="cancelarCita?id_cita=${cita.id_cita}" type="button" class="btn btn-danger">Cancelar</a></td>
 						
 							
 							</tr>
