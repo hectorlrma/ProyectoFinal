@@ -302,7 +302,6 @@ public class Controlador {
 	request.setAttribute("cita_medico", citadia);
 		return "citasMedicas";
 	}
-
 	
 	@RequestMapping("/citaconfirmada") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
 	public String citaconfirmada(HttpServletRequest request) {
@@ -339,7 +338,6 @@ public class Controlador {
 		return "altacita";
 	}
  
-
 	@RequestMapping("/citaHoyMed") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
 	public String citaHoyMed(HttpServletRequest request) {
 		HttpSession session = request.getSession(true); // abro sesion
@@ -474,7 +472,7 @@ public class Controlador {
 	public String cancelarCita(HttpServletRequest request) {
 		HttpSession session = request.getSession(true); // abro sesion
 		System.out.println("TRAZA CANCELAR CITA");
-		int id_cita = (int) request.getAttribute("id_cita");
+		int id_cita = Integer.parseInt(request.getParameter("id_cita"));
 		CitaDTO citaDTO=citaSERVICE.buscarCita(id_cita);
 		citaSERVICE.modificarCita(citaDTO);
 		return citaHoyPac(request);
