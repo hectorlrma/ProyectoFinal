@@ -80,8 +80,9 @@
 -->
 
   <div class="container">
-  <p>
- <strong>${especialidadDTO.nombre_especialidad} ${localidadDTO.nombre_localidad}</strong>
+  <p> 
+  CITAS DISPONIBLES PARA<strong> ${especialidadDTO.nombre_especialidad}</strong>EN
+  <strong> ${localidadDTO.nombre_localidad}</strong>
    <p>
         			<table class="table">
 							<thead>
