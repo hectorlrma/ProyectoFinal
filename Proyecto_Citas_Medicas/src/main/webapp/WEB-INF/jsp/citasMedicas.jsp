@@ -36,7 +36,7 @@ tr:nth-child(even) {
   </nav>
 
   <nav class="navbar navbar-expand-sm">
-  <ul></ul>
+  <ul>BIENVENIDO DOCTOR ${nick_medico}</ul>
   <ul></ul>
   <ul></ul>
   <ul></ul>
