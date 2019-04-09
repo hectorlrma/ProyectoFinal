@@ -85,21 +85,24 @@ tr:nth-child(even) {
         </nav>
 
   <nav class="navbar navbar-expand-sm">
-  <ul>BIENVENIDO DOCTOR ${nick_medico}</ul>
+  <ul>¡BIENVENIDO DOCTOR/A ${nick_medico}!</ul>
+  <ul></ul>
   <ul></ul>
   <ul></ul>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" type="button"  href="/citaHoyMed" style="color: #8331CC">Citas de Hoy</a>
-    </li>
+      <a class="btn btn-info" href="/citaHoyMed"><strong>Citas de Hoy</strong></a>
+    </li> &nbsp; &nbsp;
+      <li class="nav-item">
+      <a class="btn btn-info" href="/citaproximamed"><strong>Próximas citas</strong></a>
+    </li> &nbsp; &nbsp;
+    <li></li>
      <li class="nav-item">
-      <a class="nav-link" type="button"  href="/citaproximamed" style="color: #8331CC">Próximas citas</a>
-    </li>
+      <a class="btn btn-info" href="/citaantiguamed"><strong>Citas antiguas</strong></a>
+    </li> &nbsp; &nbsp;
+    <li></li>
      <li class="nav-item">
-      <a class="nav-link" type="button"  href="/citaantiguamed" style="color: #8331CC">Citas antiguas</a>
-    </li>
-     <li class="nav-item">
-      <a class="nav-link" type="button" href="/citaconfirmada" style="color: #8331CC">Citas confirmadas</a>
+      <a class="btn btn-info" href="/citaconfirmada"><strong>Citas confirmadas</strong></a>
     </li>
   </ul>
   
@@ -107,16 +110,16 @@ tr:nth-child(even) {
        <div class="container">
         			<table id="tablePreview" class="table table-hover table-bordered">
 							<thead>
-								<tr style="text-align: center">
-									<th scope="row"><strong>ID Cita</strong></th>
-									<th scope="row"><strong>Médico</strong></th>
-									<th scope="row"><strong>Fecha</strong></th>
-									<th scope="row"><strong>Hora</strong></th>
+								<tr style="text-align: center; background-color:#B99EF3">
+									<th scope="row"><strong>NÚMERO CITA</strong></th>
+									<th scope="row"><strong>MÉDICO</strong></th>
+									<th scope="row"><strong>FECHA</strong></th>
+									<th scope="row"><strong>HORA</strong></th>
 									
 								</tr>
 							</thead>
 							<c:forEach var="cita" items="${cita_medico}">
-							<tr style="text-align: center">
+							<tr style="text-align: center; background-color:#B6B2BF">
 							<td>${cita.id_cita}</td>
 							<td>${cita.nick_medico}</td>
 							<td>${cita.fecha_cita}</td>

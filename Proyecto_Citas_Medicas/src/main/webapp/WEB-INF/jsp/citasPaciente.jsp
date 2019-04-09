@@ -61,19 +61,17 @@
     </nav>
   </form>
   <nav class="navbar navbar-expand-sm">
-  <ul></ul>
-  <ul></ul>
-  <ul></ul>
-  <ul></ul>
+  <ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul>
+  
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="/citaHoyPac" style="color: #8331CC">Citas de Hoy</a>
-    </li>
+      <a class="btn btn-info" href="/citaHoyPac" ><strong>Citas de Hoy</strong></a>
+    </li>&nbsp; &nbsp;
      <li class="nav-item">
-      <a class="nav-link" href="/citaproximapac" style="color: #8331CC">Próximas citas</a>
-    </li>
+      <a class="btn btn-info" href="/citaproximapac"><strong>Próximas citas</strong></a>
+    </li>&nbsp; &nbsp;
      <li class="nav-item">
-      <a class="nav-link" href="/citaantiguapac" style="color: #8331CC">Citas antiguas</a>
+      <a class="btn btn-info" href="/citaantiguapac"><strong>Citas antiguas</strong></a>
     </li>
   </ul>
   </nav>
