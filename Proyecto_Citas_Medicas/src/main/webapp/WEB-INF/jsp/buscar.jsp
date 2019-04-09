@@ -55,7 +55,7 @@
     
     </nav>
   </form>
-  <nav class="navbar navbar-expand-sm">
+ <!--   <nav class="navbar navbar-expand-sm">
   <ul></ul>
   <ul></ul>
   <ul></ul>
@@ -72,7 +72,7 @@
     </li>
   </ul>
   </nav>
-
+-->
   
   <div class="container">
 
