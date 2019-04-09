@@ -21,7 +21,7 @@
   <ul></ul>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="/index" style="color: #8331CC">CITALIA</a>
+      <a class="nav-link" href="/index" style="color: #8331CC; font-size: 25px;"><strong>CITALIA</strong></a>
     </li>
   </ul>
   <ul class="navbar-nav">

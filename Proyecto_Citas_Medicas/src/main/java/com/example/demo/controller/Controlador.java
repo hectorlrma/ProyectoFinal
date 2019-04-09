@@ -334,6 +334,9 @@ public class Controlador {
 	public String altacita(HttpServletRequest request, @ModelAttribute CitaDTO citaDTO) {
 		HttpSession session = request.getSession(true); // abro sesion
 		System.out.println("TRAZA ALTA CITA");
+		String nick_medico = (String) session.getAttribute("nick_medico");
+		citaDTO.setNick_medico(nick_medico);
+		citaDTO.setNick_paciente(null);
 		citaSERVICE.altaCita(citaDTO);
 		return "altacita";
 	}

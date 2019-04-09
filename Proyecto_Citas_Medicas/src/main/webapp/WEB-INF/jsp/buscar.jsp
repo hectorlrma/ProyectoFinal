@@ -25,10 +25,14 @@
   <ul></ul>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="/index" style="color: #8331CC">CITALIA</a>
+      <a class="nav-link" href="/index" style="color: #8331CC; font-size: 25px;"><strong>CITALIA</strong></a>
     </li>
+    
   </ul>
-</nav>
+  <a class="nav-link" href="/citaHoyPac" style="color: #8331CC; font-size: 25px;"><strong>MIS CITAS</strong></a>
+  <ul></ul><ul></ul><ul></ul>
+  
+  </nav>
 <form action="/buscar">
  <nav class="navbar navbar-expand-sm" style="background-color: #2BD1E8 ">
   <ul></ul>
@@ -79,7 +83,6 @@
         			<table class="table">
 							<thead>
 								<tr style="text-align: center">
-									<th><strong>ID Cita</strong></th>
 									<th><strong>Médico</strong></th>
 									<th><strong>Fecha</strong></th>
 									<th><strong>Hora</strong></th>
@@ -89,21 +92,28 @@
 							<c:forEach var="medico" items="${medicoDTO}">
 							<tr style="text-align: center">
 							<td>${medico.nick_medico}</td>
+							<c:set var="contador" value="${0}" />
 							<c:forEach var="cita" items="${citaMedicosDTO}">
 							<c:if test="${cita.nick_medico==medico.nick_medico}">
-							<%int count = 0; %>
-							<c:if test="${count == 0}">
 							
+							<c:set var="suma" value="${1}" />
+
+							<c:if test="${contador == 0}">						
 							<td>${cita.fecha_cita}</td>
-							<td>${cita.hora_cita}</td>
-							<td><a class="nav-link" href="/pideCita?id_cita=${cita.id_cita}" style="color: #8331CC">Pedir cita</a></td>
-							<%count ++; %>
+							<td><a class="nav-link" href="/pideCita?id_cita=${cita.id_cita}" style="color: #8331CC">${cita.hora_cita}</a></td>
+							
+							
+
 							</c:if>
-							<tr>
+							<c:if test="${contador > 0}">
+							<tr style="text-align: center">
+							<td></td>
 							<td>${cita.fecha_cita}</td>
 							<td>${cita.hora_cita}</td>
 							<td><a class="nav-link" href="/pideCita?id_cita=${cita.id_cita}" style="color: #8331CC">Pedir cita</a></td>
 							</tr>
+							</c:if>
+							 <c:set var="contador" value="${contador + suma}" />
 							</c:if>
 							</c:forEach>
 							</tr>
