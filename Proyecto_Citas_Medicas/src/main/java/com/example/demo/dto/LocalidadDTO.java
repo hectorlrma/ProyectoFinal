@@ -51,9 +51,9 @@ public class LocalidadDTO {
 
 	@Override
 	public String toString() {
-		return "LocalidadDTO [id_localidad=" + id_localidad + ", nombre_localidad=" + nombre_localidad + ", medicos="
-				+ medicos + "]";
+		return "LocalidadDTO [id_localidad=" + id_localidad + ", nombre_localidad=" + nombre_localidad + "]";
 	}
+
 	
 	
 	

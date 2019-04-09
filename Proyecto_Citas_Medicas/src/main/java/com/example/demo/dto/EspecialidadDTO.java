@@ -50,8 +50,10 @@ public class EspecialidadDTO {
 	@Override
 	public String toString() {
 		return "EspecialidadDTO [id_especialidad=" + id_especialidad + ", nombre_especialidad=" + nombre_especialidad
-				+ ", medicos=" + medicos + "]";
+				+ "]";
 	}
+
+
 	
 		
 }
