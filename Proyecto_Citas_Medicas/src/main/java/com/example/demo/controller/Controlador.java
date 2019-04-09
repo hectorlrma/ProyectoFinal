@@ -189,7 +189,7 @@ public class Controlador {
 		System.out.println("TRAZA BORRAR CITA");
 		int id_cita = Integer.parseInt(request.getParameter("id_cita"));
 		citaSERVICE.borrarCita(id_cita);
-		return "borrarcita";
+		return citaHoyMed(request);
 	}
 	
 	@RequestMapping("/citaantiguapac") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
@@ -411,7 +411,10 @@ public class Controlador {
 		List<Cita> citas = new ArrayList<Cita>();
 		List<Cita> citasmedico = new ArrayList<Cita>();
 		for (MedicoDTO medicoDTO2 : medicoDTO) {
-			citas = medicoDTO2.getCitas();
+			List<Cita> citas1 = medicoDTO2.getCitas();
+			for (Cita cita : citas1) {
+				citas.add(cita);
+			}
 		}
 		for (Cita cita : citas) {
 			try {
