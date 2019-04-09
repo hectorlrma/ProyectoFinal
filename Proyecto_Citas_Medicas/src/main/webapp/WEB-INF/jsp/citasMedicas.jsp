@@ -33,11 +33,41 @@ tr:nth-child(even) {
       <a class="nav-link" href="/index" style="color: #8331CC">CITALIA</a>
     </li>
   </ul>
-  </nav>
+  <ul class="navbar-nav">
+   <li class="nav-item">
+          <label class="text" data-toggle="modal" data-target="#altaCita">Inicia Sesión</label>
+         
+          
+          
+      </li>
+  </ul>
+  
+
+
+<!-- Modal Registro-->
+<div class="modal fade" id="altaCita" tabindex="-1" role="dialog" aria-labelledby="altaCita" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Alta cita</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/altacita">
+      <div class="modal-body">
+        <div class="form-group">
+    <label for="fecha_cita">Date(yyyy-mm-dd)</label>
+    <input type="text" class="form-control"  value="${citaDTO.fecha_cita}" id="fecha_cita" name="fecha_cita" placeholder="Introduce la fecha">
+  </div>   
+   <div class="form-group">
+    <label for="hora_cita">Hora(hh:mm)</label>
+    <input type="text" class="form-control"  value="${citaDTO.hora_cita}" id="hora_cita" name="hora_cita" placeholder="Introduce la hora">
+  </div>   
+        </nav>
 
   <nav class="navbar navbar-expand-sm">
   <ul>BIENVENIDO DOCTOR ${nick_medico}</ul>
-  <ul></ul>
   <ul></ul>
   <ul></ul>
   <ul class="navbar-nav mr-auto">
@@ -56,7 +86,7 @@ tr:nth-child(even) {
   </ul>
   </nav>
        <div class="container">
-        			<table id="tablePreview" class="table table-striped table-hover table-bordered">
+        			<table id="tablePreview" class="table table-hover table-bordered">
 							<thead>
 								<tr style="text-align: center">
 									<th scope="row"><strong>ID Cita</strong></th>
