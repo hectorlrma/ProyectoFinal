@@ -17,7 +17,7 @@
 
  <title>CITALIA - Pide tu cita médica</title>
 </head>
-<body>
+<body background="imagenes/fondo-buscar.jpg" >
 <nav class="navbar navbar-expand-sm" style="background-color: #2BD1E8 ">
   
   <ul></ul>
@@ -80,9 +80,8 @@
 -->
 
   <div class="container">
-  <p> 
-  CITAS DISPONIBLES PARA<strong> ${especialidadDTO.nombre_especialidad}</strong>EN
-  <strong> ${localidadDTO.nombre_localidad}</strong>
+  <p>
+ <strong>${especialidadDTO.nombre_especialidad} ${localidadDTO.nombre_localidad}</strong>
    <p>
         			<table class="table">
 							<thead>
