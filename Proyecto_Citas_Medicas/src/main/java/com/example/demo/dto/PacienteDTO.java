@@ -16,10 +16,10 @@ public class PacienteDTO {
 	
 	private String rol_paciente;
 	
-	private List<Cita> citas;
+	private List<CitaDTO> citas;
 
 	public PacienteDTO(String nick_paciente, String nombre_paciente, String password_paciente, String email_paciente,
-			String rol_paciente, List<Cita> citas) {
+			String rol_paciente, List<CitaDTO> citas) {
 		super();
 		this.nick_paciente = nick_paciente;
 		this.nombre_paciente = nombre_paciente;
@@ -73,11 +73,11 @@ public class PacienteDTO {
 		this.rol_paciente = rol_paciente;
 	}
 
-	public List<Cita> getCitas() {
+	public List<CitaDTO> getCitas() {
 		return citas;
 	}
 
-	public void setCitas(List<Cita> citas) {
+	public void setCitas(List<CitaDTO> citas) {
 		this.citas = citas;
 	}
 
