@@ -71,7 +71,12 @@ tr:nth-child(even) {
     <label for="hora_cita">Hora(hh:mm)</label>
     <input type="text" class="form-control"  value="${citaDTO.hora_cita}" id="hora_cita" name="hora_cita" placeholder="Introduce la hora">
   </div> 
+   <div class="form-group">
+     <button type="submit" class="btn btn-primary">Dar de alta</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+     </div>
   </div>
+  
   </form>
   </div>
   </div>
