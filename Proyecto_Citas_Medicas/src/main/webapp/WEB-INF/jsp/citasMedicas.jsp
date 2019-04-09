@@ -27,7 +27,7 @@ tr:nth-child(even) {
  
 </style>
 </head>
-<body>
+<body background="imagenes/fondo-medico.jpg" >
 <nav class="navbar navbar-expand-sm" style="background-color: #2BD1E8 ">
   <ul></ul>
   <ul></ul>
