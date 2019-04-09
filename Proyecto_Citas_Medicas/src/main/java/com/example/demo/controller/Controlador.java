@@ -187,7 +187,7 @@ public class Controlador {
 	public String borrarcita(HttpServletRequest request) {
 		HttpSession session = request.getSession(true); // abro sesion
 		System.out.println("TRAZA BORRAR CITA");
-		int id_cita = (int) request.getAttribute("id_cita");
+		int id_cita = Integer.parseInt(request.getParameter("id_cita"));
 		citaSERVICE.borrarCita(id_cita);
 		return "borrarcita";
 	}
@@ -207,7 +207,7 @@ public class Controlador {
 				String fecha_cita_string = formatter.format(fecha_cita);
 				Date fecha_cita_formatted = formatter.parse(fecha_cita_string);
 				System.out.println("fecha_cita_formatted: "+fecha_cita_formatted);
-				if (cita.getFecha_cita().compareTo(citaSERVICE.getFechaDia())<0) {
+				if (fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())<0) {
 					citadia.add(cita);
 				}
 			} catch (ParseException e) {
@@ -222,7 +222,7 @@ public class Controlador {
 	@RequestMapping("/citaproximapac") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
 	public String citaproximapac(HttpServletRequest request) {
 		HttpSession session = request.getSession(true); // abro sesion
-		System.out.println("TRAZA CITA ANTIGUA PACIENTE");
+		System.out.println("TRAZA CITA PROXIMA PACIENTE");
 		session.getAttribute("nick_paciente");
 		String nick_paciente = (String)session.getAttribute("nick_paciente");
 		PacienteDTO paciente=pacienteSERVICE.buscarPacienteDTO(nick_paciente);
@@ -235,7 +235,9 @@ public class Controlador {
 				String fecha_cita_string = formatter.format(fecha_cita);
 				Date fecha_cita_formatted = formatter.parse(fecha_cita_string);
 				System.out.println("fecha_cita_formatted: "+fecha_cita_formatted);
-				if (cita.getFecha_cita().compareTo(citaSERVICE.getFechaDia())>0) {
+				System.out.println("fehca cita: "+cita.getFecha_cita());
+				System.out.println("fecha service: "+citaSERVICE.getFechaDia());
+				if (fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())>0) {
 					citadia.add(cita);
 				}
 			} catch (ParseException e) {
@@ -257,7 +259,11 @@ public class Controlador {
 		List<Cita> citadia = new ArrayList<Cita>();
 		for (Cita cita : citas) {
 			try {
-				if ((cita.getFecha_cita().compareTo(citaSERVICE.getFechaDia())<0)&cita.getPaciente()!=null) {
+				Date fecha_cita = cita.getFecha_cita();
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+				String fecha_cita_string = formatter.format(fecha_cita);
+				Date fecha_cita_formatted = formatter.parse(fecha_cita_string);
+				if ((fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())<0)&cita.getPaciente()!=null) {
 					citadia.add(cita);
 				}
 			} catch (ParseException e) {
@@ -280,7 +286,12 @@ public class Controlador {
 	List<Cita> citadia = new ArrayList<Cita>();
 	for (Cita cita : citas) {
 		try {
-			if (cita.getFecha_cita().compareTo(citaSERVICE.getFechaDia())>0) {
+			Date fecha_cita = cita.getFecha_cita();
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			String fecha_cita_string = formatter.format(fecha_cita);
+			Date fecha_cita_formatted = formatter.parse(fecha_cita_string);
+			System.out.println("fecha_cita_formatted: "+fecha_cita_formatted);
+			if (fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())>0) {
 				citadia.add(cita);
 			}
 		} catch (ParseException e) {
@@ -302,7 +313,12 @@ public class Controlador {
 	List<Cita> citadia = new ArrayList<Cita>();
 	for (Cita cita : citas) {
 		try {
-			if ((cita.getFecha_cita().compareTo(citaSERVICE.getFechaDia())>=0)&cita.getPaciente()!=null) {
+			Date fecha_cita = cita.getFecha_cita();
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			String fecha_cita_string = formatter.format(fecha_cita);
+			Date fecha_cita_formatted = formatter.parse(fecha_cita_string);
+			System.out.println("fecha_cita_formatted: "+fecha_cita_formatted);
+			if ((fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())>=0)&cita.getPaciente()!=null) {
 				citadia.add(cita);
 			}
 		} catch (ParseException e) {
@@ -392,12 +408,28 @@ public class Controlador {
 		System.out.println("localidad: "+id_localidad);
 		List<MedicoDTO> medicoDTO=medicoSERVICE.findByLocalidadAndEspecialidad2(id_localidad, id_especialidad);
 		System.out.println("medicoDTO: "+medicoDTO);
-		List<Cita> citadia = new ArrayList<Cita>();
+		List<Cita> citas = new ArrayList<Cita>();
+		List<Cita> citasmedico = new ArrayList<Cita>();
 		for (MedicoDTO medicoDTO2 : medicoDTO) {
-			citadia = medicoDTO2.getCitas();
+			citas = medicoDTO2.getCitas();
 		}
-		System.out.println("citaMedicosDTO: "+citadia);
-		request.setAttribute("citaMedicosDTO", citadia);
+		for (Cita cita : citas) {
+			try {
+				Date fecha_cita = cita.getFecha_cita();
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+				String fecha_cita_string = formatter.format(fecha_cita);
+				Date fecha_cita_formatted = formatter.parse(fecha_cita_string);
+				System.out.println("fecha_cita_formatted: "+fecha_cita_formatted);
+				if ((fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())>=0)&cita.getPaciente()==null) {
+					citasmedico.add(cita);
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		System.out.println("citaMedicosDTO: "+citasmedico);
+		request.setAttribute("citaMedicosDTO", citasmedico);
 		request.setAttribute("medicoDTO", medicoDTO);
 //		citaSERVICE.altaCita(citaDTO);
 		return "buscar";
@@ -420,13 +452,25 @@ public class Controlador {
 		HttpSession session = request.getSession(true); // abro sesion
 		System.out.println("TRAZA PIDE CITA");
 		String nick_paciente = (String)session.getAttribute("nick_paciente");
-		int id_cita = (int) request.getAttribute("id_cita");
+		System.out.println("nick_paciente: "+nick_paciente);
+		System.out.println("id_cita: "+request.getParameter("id_cita"));
+		int id_cita = Integer.parseInt(request.getParameter("id_cita"));
 		System.out.println("id_cita: "+id_cita);
-//		CitaDTO citaDTO=citaSERVICE.buscarCitaDTO(id_cita);
-//		citaDTO.setNick_paciente(nick_paciente);
-//		System.out.println("citaDTO: "+citaDTO);
-//		citaSERVICE.modificarCita(citaDTO);
-//		request.setAttribute("citaDTO", citaDTO);		
-		return "pideCita";
+		CitaDTO citaDTO=citaSERVICE.buscarCita(id_cita);
+		citaDTO.setNick_paciente(nick_paciente);
+		System.out.println("citaDTO: "+citaDTO);
+		citaSERVICE.altaCita(citaDTO);
+		System.out.println("citaDTO: "+citaDTO);
+		request.setAttribute("citaDTO", citaDTO);		
+		return citaHoyPac(request);
 	}
+	
+/*	@RequestMapping("/cancelarCita") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
+	public String borrarcita(HttpServletRequest request) {
+		HttpSession session = request.getSession(true); // abro sesion
+		System.out.println("TRAZA BORRAR CITA");
+		int id_cita = Integer.parseInt(request.getParameter("id_cita"));
+		citaSERVICE.borrarCita(id_cita);
+		return "borrarcita";
+	}*/
 }
