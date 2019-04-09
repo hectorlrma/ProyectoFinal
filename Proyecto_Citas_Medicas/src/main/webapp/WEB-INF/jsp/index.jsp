@@ -239,7 +239,7 @@
 <p style="font-family: 'Exo 2';font-size: 200px; color: #8331CC">CITALIA</p>
 </div>
 <div class="d-flex justify-content-sm-center" style="background-color: #2BD1E8">
-<p style="font-family: 'Exo 2';font-size: 30px; color: #8331CC">Tus citas médicas en un click</p>
+<p style="font-family: 'Exo 2';font-size: 30px; color: #8331CC">[Tus citas médicas en un click]</p>
 
 </div>
 

@@ -21,7 +21,6 @@ tr:nth-child(odd) {
 tr:nth-child(even) {
     background-color:#9778DC;
 }
- 
 </style>	
 <title>Citas Paciente</title>
 </head>

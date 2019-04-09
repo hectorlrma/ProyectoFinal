@@ -25,9 +25,11 @@
   <ul></ul>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="/index" style="color: #8331CC">CITALIA</a>
+      <a class="nav-link" href="/index" style="color: #8331CC; font-size: 25px;"><strong>CITALIA</strong></a>
     </li>
   </ul>
+  <a class="nav-link" href="/citaHoyPac" style="color: #8331CC; font-size: 25px;"><strong>MIS CITAS</strong></a>
+  <ul></ul><ul></ul><ul></ul>
 </nav>
 <form action="/buscar">
  <nav class="navbar navbar-expand-sm" style="background-color: #2BD1E8 ">
