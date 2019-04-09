@@ -13,14 +13,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
 <style type='text/css'>
  
-tr:nth-child(odd) {
-    background-color:#B99EF3;
-}
-tr:nth-child(even) {
-    background-color:#9778DC;
-}
 </style>	
 <title>Citas Paciente</title>
 </head>
@@ -85,22 +80,22 @@ tr:nth-child(even) {
        
         
           <div class="container">
-        			<table id="tablePreview" class="table table-striped table-hover table-bordered">
+        			<table class="table table-striped table-hover table-bordered">
 							<thead>
-								<tr style="text-align: center">
-									<th scope="row"><strong>ID Cita</strong></th>
-									<th scope="row"><strong>Médico</strong></th>
-									<th scope="row"><strong>Fecha</strong></th>
-									<th scope="row"><strong>Hora</strong></th>
+								<tr style="text-align: center; background-color:#B99EF3;">
+									<th scope="row"><strong>NÚMERO CITA</strong></th>
+									<th scope="row"><strong>MÉDICO</strong></th>
+									<th scope="row"><strong>FECHA</strong></th>
+									<th scope="row"><strong>HORA</strong></th>
 									
 								</tr>
 							</thead>
 							<c:forEach var="cita" items="${cita_paciente}">
-							<tr style="text-align: center">
-							<td>${cita.id_cita}</td>
-							<td>${cita.nick_medico}</td>
-							<td>${cita.fecha_cita}</td>
-							<td>${cita.hora_cita}</td>
+							<tr style="text-align: center; background-color:#B6B2BF"  >
+							<td><strong>${cita.id_cita}</strong></td>
+							<td><strong>${cita.nick_medico}</strong></td>
+							<td><strong>${cita.fecha_cita}</strong></td>
+							<td><strong>${cita.hora_cita}</strong></td>
 							<td><a href="cancelarCita?id_cita=${cita.id_cita}" type="button" class="btn btn-danger">Cancelar</a></td>
 						
 							
