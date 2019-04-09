@@ -35,7 +35,7 @@ tr:nth-child(even) {
   </ul>
   <ul class="navbar-nav">
    <li class="nav-item">
-          <label class="text" data-toggle="modal" data-target="#altaCita">Inicia Sesión</label>
+          <label class="btn" data-toggle="modal" data-target="#altaCita">Alta Cita</label>
          
           
           
