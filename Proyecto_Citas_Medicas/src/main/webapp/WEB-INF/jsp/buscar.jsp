@@ -90,7 +90,7 @@
 							<tr style="text-align: center">
 							<td>${medico.nick_medico}</td>
 							<c:forEach var="cita" items="${citaMedicosDTO}">
-							<c:if test="${cita.nick_medico=={medico.nick_medico}">
+							<c:if test="${cita.nick_medico==medico.nick_medico}">
 							<td>${cita.fecha_cita}</td>
 							<td>${cita.hora_cita}</td>
 							<td><a class="nav-link" href="/pideCita?id_cita=${cita.id_cita}" style="color: #8331CC">Pedir cita</a></td>
