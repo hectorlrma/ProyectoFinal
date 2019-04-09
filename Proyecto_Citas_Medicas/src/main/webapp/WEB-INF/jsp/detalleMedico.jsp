@@ -21,9 +21,8 @@
 							<tr style="text-align: center">
 							<td>${medicoDTO.nombre_medico}</td>
 							<td>${medicoDTO.email_medico}</td>
-							<td>${medicoDTO.id_cita}</td>
-							<td>${medicoDTO.id_cita}</td>
-							<td><a href="cancelarCita?id_cita=${cita.id_cita}" type="button" class="btn btn-danger">Cancelar</a></td>
+							<td>${localidadDTO.nombre_localidad}</td>
+							<td>${especialidadDTO.nombre_especialidad}</td>
 						
 							
 							</tr>
