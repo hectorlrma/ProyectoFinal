@@ -21,12 +21,12 @@ public class MedicoDTO {
 	
 	private int id_localidad;
 	
-	private List<Cita> citas;
+	private List<CitaDTO> citas;
 
 
 
 	public MedicoDTO(String nick_medico, String nombre_medico, String password_medico, String email_medico,
-			String rol_medico, int id_especialidad, int id_localidad, List<Cita> citas) {
+			String rol_medico, int id_especialidad, int id_localidad, List<CitaDTO> citas) {
 		super();
 		this.nick_medico = nick_medico;
 		this.nombre_medico = nombre_medico;
@@ -98,11 +98,11 @@ public class MedicoDTO {
 		this.id_localidad = id_localidad;
 	}
 
-	public List<Cita> getCitas() {
+	public List<CitaDTO> getCitas() {
 		return citas;
 	}
 
-	public void setCitas(List<Cita> citas) {
+	public void setCitas(List<CitaDTO> citas) {
 		this.citas = citas;
 	}
 

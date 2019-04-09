@@ -33,7 +33,10 @@ public class CitaSERVICE implements ICitaSERVICE {
 		List<CitaDTO> listaDTO = new ArrayList<CitaDTO>();
 		
 		for (Cita cita : lista) {
-			listaDTO.add(new CitaDTO(cita.getId_cita(),cita.getFecha_cita(),cita.getHora_cita(),cita.getNick_medico(),cita.getNick_paciente()));
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			Date fechaCita = cita.getFecha_cita();
+			String fechaCitaString = formatter.format(fechaCita);
+			listaDTO.add(new CitaDTO(cita.getId_cita(),fechaCitaString,cita.getHora_cita(),cita.getNick_medico(),cita.getNick_paciente()));
 		}
 		
 				
@@ -48,7 +51,10 @@ public class CitaSERVICE implements ICitaSERVICE {
 		List<CitaDTO> listaDTO = new ArrayList<CitaDTO>();
 		
 		for (Cita cita : lista) {
-			listaDTO.add(new CitaDTO(cita.getId_cita(),cita.getFecha_cita(),cita.getHora_cita(),cita.getNick_medico(),cita.getNick_paciente()));
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			Date fechaCita = cita.getFecha_cita();
+			String fechaCitaString = formatter.format(fechaCita);
+			listaDTO.add(new CitaDTO(cita.getId_cita(),fechaCitaString,cita.getHora_cita(),cita.getNick_medico(),cita.getNick_paciente()));
 		}
 		
 				
@@ -59,9 +65,18 @@ public class CitaSERVICE implements ICitaSERVICE {
 	public void altaCita(CitaDTO citaDTO) {
 		
 		Cita cita = new Cita();
-		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		String fechaCitaString = citaDTO.getFecha_cita();
+		Date fechaCita = new Date();
+		try {
+			fechaCita = formatter.parse(fechaCitaString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 		cita.setId_cita(citaDTO.getId_cita());
-		cita.setFecha_cita(citaDTO.getFecha_cita());
+		cita.setFecha_cita(fechaCita);
 		cita.setHora_cita(citaDTO.getHora_cita());
 		cita.setNick_medico(citaDTO.getNick_medico());
 		cita.setNick_paciente(citaDTO.getNick_paciente());
@@ -81,8 +96,18 @@ public class CitaSERVICE implements ICitaSERVICE {
 		
 		Cita cita = new Cita();
 		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		String fechaCitaString = citaDTO.getFecha_cita();
+		Date fechaCita = new Date();
+		try {
+			fechaCita = formatter.parse(fechaCitaString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		cita.setId_cita(citaDTO.getId_cita());
-		cita.setFecha_cita(citaDTO.getFecha_cita());
+		cita.setFecha_cita(fechaCita);
 		cita.setHora_cita(citaDTO.getHora_cita());
 		cita.setNick_medico(citaDTO.getNick_medico());
 		cita.setNick_paciente(null);
@@ -109,7 +134,10 @@ public class CitaSERVICE implements ICitaSERVICE {
 		
 		if(citaOp.isPresent()) {
 			Cita cita = citaOp.get();
-			CitaDTO citaDTO = new CitaDTO(cita.getId_cita(), cita.getFecha_cita(), cita.getHora_cita(), cita.getNick_medico(), cita.getNick_paciente());
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			Date fechaCita = cita.getFecha_cita();
+			String fechaCitaString = formatter.format(fechaCita);
+			CitaDTO citaDTO = new CitaDTO(cita.getId_cita(), fechaCitaString, cita.getHora_cita(), cita.getNick_medico(), cita.getNick_paciente());
 			
 			return citaDTO;
 		}

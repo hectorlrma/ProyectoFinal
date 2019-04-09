@@ -7,7 +7,7 @@ public class CitaDTO {
 	
 	private int id_cita;
 	
-	private Date fecha_cita;
+	private String fecha_cita;
 	
 	private String hora_cita;
 	
@@ -15,7 +15,7 @@ public class CitaDTO {
 	
 	private String nick_paciente;
 
-	public CitaDTO(int id_cita, Date fecha_cita, String hora_cita, String nick_medico, String nick_paciente) {
+	public CitaDTO(int id_cita, String fecha_cita, String hora_cita, String nick_medico, String nick_paciente) {
 		super();
 		this.id_cita = id_cita;
 		this.fecha_cita = fecha_cita;
@@ -36,11 +36,11 @@ public class CitaDTO {
 		this.id_cita = id_cita;
 	}
 
-	public Date getFecha_cita() {
+	public String getFecha_cita() {
 		return fecha_cita;
 	}
 
-	public void setFecha_cita(Date fecha_cita) {
+	public void setFecha_cita(String fecha_cita) {
 		this.fecha_cita = fecha_cita;
 	}
 

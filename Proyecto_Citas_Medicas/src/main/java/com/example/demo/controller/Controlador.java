@@ -158,13 +158,12 @@ public class Controlador {
 			e1.printStackTrace();
 		}
 		System.out.println("fechadia: "+fechadia);
-		List<Cita> citas = medicoDTO.getCitas();
-		List<Cita> citadia = new ArrayList<Cita>();
-		for (Cita cita : citas) {
+		List<CitaDTO> citas = medicoDTO.getCitas();
+		List<CitaDTO> citadia = new ArrayList<CitaDTO>();
+		for (CitaDTO cita : citas) {
 			try {
-				Date fecha_cita = cita.getFecha_cita();
+				String fecha_cita_string = cita.getFecha_cita();
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-				String fecha_cita_string = formatter.format(fecha_cita);
 				Date fecha_cita_formatted = formatter.parse(fecha_cita_string);
 				System.out.println("fecha_cita_formatted: "+fecha_cita_formatted);
 				if (fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())==0) {
@@ -255,15 +254,14 @@ public class Controlador {
 		System.out.println("TRAZA CITA ANTIGUA MEDICO");
 		String nick_medico = (String) session.getAttribute("nick_medico");
 		MedicoDTO medicoDTO=medicoSERVICE.buscarMedicoDTO(nick_medico);
-		List<Cita> citas = medicoDTO.getCitas();
-		List<Cita> citadia = new ArrayList<Cita>();
-		for (Cita cita : citas) {
+		List<CitaDTO> citas = medicoDTO.getCitas();
+		List<CitaDTO> citadia = new ArrayList<CitaDTO>();
+		for (CitaDTO cita : citas) {
 			try {
-				Date fecha_cita = cita.getFecha_cita();
+				String fecha_cita_string = cita.getFecha_cita();
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-				String fecha_cita_string = formatter.format(fecha_cita);
 				Date fecha_cita_formatted = formatter.parse(fecha_cita_string);
-				if ((fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())<0)&cita.getPaciente()!=null) {
+				if ((fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())<0)&cita.getNick_paciente()!=null) {
 					citadia.add(cita);
 				}
 			} catch (ParseException e) {
@@ -282,13 +280,12 @@ public class Controlador {
 	System.out.println("TRAZA CITA PROXIMA MEDICO");
 	String nick_medico = (String) session.getAttribute("nick_medico");
 	MedicoDTO medicoDTO=medicoSERVICE.buscarMedicoDTO(nick_medico);
-	List<Cita> citas = medicoDTO.getCitas();
-	List<Cita> citadia = new ArrayList<Cita>();
-	for (Cita cita : citas) {
+	List<CitaDTO> citas = medicoDTO.getCitas();
+	List<CitaDTO> citadia = new ArrayList<CitaDTO>();
+	for (CitaDTO cita : citas) {
 		try {
-			Date fecha_cita = cita.getFecha_cita();
+			String fecha_cita_string = cita.getFecha_cita();
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-			String fecha_cita_string = formatter.format(fecha_cita);
 			Date fecha_cita_formatted = formatter.parse(fecha_cita_string);
 			System.out.println("fecha_cita_formatted: "+fecha_cita_formatted);
 			if (fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())>0) {
@@ -309,16 +306,15 @@ public class Controlador {
 	System.out.println("TRAZA CITA CONFIRMADA MEDICO");
 	String nick_medico = (String) session.getAttribute("nick_medico");
 	MedicoDTO medicoDTO=medicoSERVICE.buscarMedicoDTO(nick_medico);
-	List<Cita> citas = medicoDTO.getCitas();
-	List<Cita> citadia = new ArrayList<Cita>();
-	for (Cita cita : citas) {
+	List<CitaDTO> citas = medicoDTO.getCitas();
+	List<CitaDTO> citadia = new ArrayList<CitaDTO>();
+	for (CitaDTO cita : citas) {
 		try {
-			Date fecha_cita = cita.getFecha_cita();
+			String fecha_cita_string = cita.getFecha_cita();
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-			String fecha_cita_string = formatter.format(fecha_cita);
 			Date fecha_cita_formatted = formatter.parse(fecha_cita_string);
 			System.out.println("fecha_cita_formatted: "+fecha_cita_formatted);
-			if ((fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())>=0)&cita.getPaciente()!=null) {
+			if ((fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())>=0)&cita.getNick_paciente()!=null) {
 				citadia.add(cita);
 			}
 		} catch (ParseException e) {
@@ -349,13 +345,12 @@ public class Controlador {
 		System.out.println("nick_medico: "+nick_medico);
 		MedicoDTO medicoDTO=medicoSERVICE.buscarMedicoDTO(nick_medico);
 		System.out.println("medicoDTO: "+medicoDTO);
-		List<Cita> citas = medicoDTO.getCitas();
-		List<Cita> citadia = new ArrayList<Cita>();
-		for (Cita cita : citas) {
+		List<CitaDTO> citas = medicoDTO.getCitas();
+		List<CitaDTO> citadia = new ArrayList<CitaDTO>();
+		for (CitaDTO cita : citas) {
 			try {
-				Date fecha_cita = cita.getFecha_cita();
+				String fecha_cita_string = cita.getFecha_cita();
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-				String fecha_cita_string = formatter.format(fecha_cita);
 				Date fecha_cita_formatted = formatter.parse(fecha_cita_string);
 				System.out.println("fecha_cita_formatted: "+fecha_cita_formatted);
 				if (fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())==0) {
@@ -413,22 +408,21 @@ public class Controlador {
 		LocalidadDTO localidadDTO= localidadSERVICE.buscarLocalidadDTO(id_localidad);
 		List<MedicoDTO> medicoDTO=medicoSERVICE.findByLocalidadAndEspecialidad2(id_localidad, id_especialidad);
 		System.out.println("medicoDTO: "+medicoDTO);
-		List<Cita> citas = new ArrayList<Cita>();
-		List<Cita> citasmedico = new ArrayList<Cita>();
+		List<CitaDTO> citas = new ArrayList<CitaDTO>();
+		List<CitaDTO> citasmedico = new ArrayList<CitaDTO>();
 		for (MedicoDTO medicoDTO2 : medicoDTO) {
-			List<Cita> citas1 = medicoDTO2.getCitas();
-			for (Cita cita : citas1) {
+			List<CitaDTO> citas1 = medicoDTO2.getCitas();
+			for (CitaDTO cita : citas1) {
 				citas.add(cita);
 			}
 		}
-		for (Cita cita : citas) {
+		for (CitaDTO cita : citas) {
 			try {
-				Date fecha_cita = cita.getFecha_cita();
+				String fecha_cita_string = cita.getFecha_cita();
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-				String fecha_cita_string = formatter.format(fecha_cita);
 				Date fecha_cita_formatted = formatter.parse(fecha_cita_string);
 				System.out.println("fecha_cita_formatted: "+fecha_cita_formatted);
-				if ((fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())>=0)&cita.getPaciente()==null) {
+				if ((fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())>=0)&cita.getNick_paciente()==null) {
 					citasmedico.add(cita);
 				}
 			} catch (ParseException e) {
@@ -456,22 +450,21 @@ public class Controlador {
 		
 		List<MedicoDTO> medicoDTO=medicoSERVICE.findByLocalidadAndEspecialidad2(escepecialidadDTO.getId_especialidad(), localidadDTO.getId_localidad());
 		System.out.println("medicoDTO: "+medicoDTO);
-		List<Cita> citas = new ArrayList<Cita>();
-		List<Cita> citasmedico = new ArrayList<Cita>();
+		List<CitaDTO> citas = new ArrayList<CitaDTO>();
+		List<CitaDTO> citasmedico = new ArrayList<CitaDTO>();
 		for (MedicoDTO medicoDTO2 : medicoDTO) {
-			List<Cita> citas1 = medicoDTO2.getCitas();
-			for (Cita cita : citas1) {
+			List<CitaDTO> citas1 = medicoDTO2.getCitas();
+			for (CitaDTO cita : citas1) {
 				citas.add(cita);
 			}
 		}
-		for (Cita cita : citas) {
+		for (CitaDTO cita : citas) {
 			try {
-				Date fecha_cita = cita.getFecha_cita();
+				String fecha_cita_string = cita.getFecha_cita();
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-				String fecha_cita_string = formatter.format(fecha_cita);
 				Date fecha_cita_formatted = formatter.parse(fecha_cita_string);
 				System.out.println("fecha_cita_formatted: "+fecha_cita_formatted);
-				if ((fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())>=0)&cita.getPaciente()==null) {
+				if ((fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())>=0)&cita.getNick_paciente()==null) {
 					citasmedico.add(cita);
 				}
 			} catch (ParseException e) {
