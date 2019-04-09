@@ -19,6 +19,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-sm" style="background-color: #2BD1E8 ">
+  
   <ul></ul>
   <ul></ul>
   <ul></ul>
@@ -77,12 +78,14 @@
   </ul>
   </nav>
 -->
-  
-  <div class="container">
 
+  <div class="container">
+  <p>
+ <strong>${especialidadDTO.nombre_especialidad} ${localidadDTO.nombre_localidad}</strong>
+   <p>
         			<table class="table">
 							<thead>
-								<tr style="text-align: center">
+								<tr style="text-align: center; background-color:#B99EF3;">
 									<th><strong>Médico</strong></th>
 									<th><strong>Fecha</strong></th>
 									<th><strong>Hora</strong></th>
@@ -90,7 +93,7 @@
 								</tr>
 							</thead>
 							<c:forEach var="medico" items="${medicoDTO}">
-							<tr style="text-align: center">
+							<tr style="text-align: center; background-color:#B6B2BF">
 							<td>${medico.nick_medico}</td>
 							<c:set var="contador" value="${0}" />
 							<c:forEach var="cita" items="${citaMedicosDTO}">
@@ -106,7 +109,7 @@
 
 							</c:if>
 							<c:if test="${contador > 0}">
-							<tr style="text-align: center">
+							<tr style="text-align: center; background-color:#B6B2BF">
 							<td></td>
 							<td>${cita.fecha_cita}</td>
 							<td>${cita.hora_cita}</td>
