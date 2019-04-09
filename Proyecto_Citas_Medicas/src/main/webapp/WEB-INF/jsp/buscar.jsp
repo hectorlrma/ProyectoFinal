@@ -146,7 +146,7 @@
 								</c:forEach>
 						</table>
 </div>
-</div>
+
 <div class="floatRight">
 <tr><table class="table">
 							<thead>
