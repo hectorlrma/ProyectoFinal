@@ -21,5 +21,7 @@ public interface ICitaSERVICE {
 	
 	public void modificarCita(CitaDTO citaDTO);
 	
+	public CitaDTO buscarCita (int id_cita);
+	
 	public Date getFechaDia() throws ParseException;
 }

@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.beans.Cita;
 import com.example.demo.beans.Paciente;
 import com.example.demo.dao.CitaRepository;
+
 import com.example.demo.dto.CitaDTO;
 import com.example.demo.interfaces.ICitaSERVICE;
 
@@ -97,6 +99,24 @@ public class CitaSERVICE implements ICitaSERVICE {
 		Date fechaDia = formatter.parse(fechaDiaString);
 		
 		return fechaDia;
+		
+	}
+
+	@Override
+	public CitaDTO buscarCita(int id_cita) {
+		
+		Optional<Cita> citaOp = citaRepository.findById(id_cita);
+		
+		if(citaOp.isPresent()) {
+			Cita cita = citaOp.get();
+			CitaDTO citaDTO = new CitaDTO(cita.getId_cita(), cita.getFecha_cita(), cita.getHora_cita(), cita.getNick_medico(), cita.getNick_paciente());
+			
+			return citaDTO;
+		}
+		
+		return null;
+		
+		
 		
 	}
 	
