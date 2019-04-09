@@ -166,7 +166,7 @@
 							<td>${cita.hora_cita}</td>
 							<td><a class="nav-link" href="/pideCita?id_cita=${cita.id_cita}" style="color: #8331CC">Pedir cita</a></td>
 						
-							
+					
 							</tr>
 								</c:forEach>
 						</table>
