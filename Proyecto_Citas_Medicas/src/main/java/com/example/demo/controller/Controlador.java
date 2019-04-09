@@ -406,6 +406,8 @@ public class Controlador {
 		int id_localidad=Integer.parseInt(request.getParameter("localidad"));
 		System.out.println("especialidad: "+id_especialidad);
 		System.out.println("localidad: "+id_localidad);
+		EspecialidadDTO especialidadDTO = especialidadSERVICE.buscarEspecialidadDTO(id_especialidad);
+		LocalidadDTO localidadDTO= localidadSERVICE.buscarLocalidadDTO(id_localidad);
 		List<MedicoDTO> medicoDTO=medicoSERVICE.findByLocalidadAndEspecialidad2(id_localidad, id_especialidad);
 		System.out.println("medicoDTO: "+medicoDTO);
 		List<Cita> citas = new ArrayList<Cita>();
@@ -432,23 +434,13 @@ public class Controlador {
 			}
 		}
 		System.out.println("citaMedicosDTO: "+citasmedico);
+		request.setAttribute("localidadDTO", localidadDTO);
+		request.setAttribute("especialidadDTO", especialidadDTO);
 		request.setAttribute("citaMedicosDTO", citasmedico);
 		request.setAttribute("medicoDTO", medicoDTO);
 //		citaSERVICE.altaCita(citaDTO);
 		return "buscar";
 	}
-/*	@RequestMapping("/modificaCita") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
-	public String modificaCita(HttpServletRequest request, @ModelAttribute CitaDTO citaDTO) {
-		HttpSession session = request.getSession(true); // abro sesion
-		System.out.println("TRAZA MODIFICA CITA");
-		String nick_paciente = (String)session.getAttribute("nick_paciente");
-		citaDTO.setNick_paciente(nick_paciente);
-		System.out.println("citaDTO: "+citaDTO);
-		citaSERVICE.modificarCita(citaDTO);
-		
-		request.setAttribute("cita_paciente", citaDTO);
-		return "citasPaciente";
-	}*/
 	
 	@RequestMapping("/pideCita") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
 	public String pideCita(HttpServletRequest request) {
@@ -484,6 +476,10 @@ public class Controlador {
 		System.out.println("TRAZA DETALLE MEDICO");
 		String nick_medico = request.getParameter("nick_medico");
 		MedicoDTO medicoDTO=medicoSERVICE.buscarMedicoDTO(nick_medico);
+		EspecialidadDTO especialidadDTO = especialidadSERVICE.buscarEspecialidadDTO(medicoDTO.getId_Especialidad());
+		LocalidadDTO localidadDTO= localidadSERVICE.buscarLocalidadDTO(medicoDTO.getId_localidad());
+		request.setAttribute("localidadDTO", localidadDTO);
+		request.setAttribute("especialidadDTO", especialidadDTO);		
 		request.setAttribute("medicoDTO", medicoDTO);
 		return "detalleMedico";
 	}
