@@ -422,11 +422,11 @@ public class Controlador {
 		String nick_paciente = (String)session.getAttribute("nick_paciente");
 		int id_cita = (int) request.getAttribute("id_cita");
 		System.out.println("id_cita: "+id_cita);
-		CitaDTO citaDTO=citaSERVICE.buscarCitaDTO(id_cita);
-		citaDTO.setNick_paciente(nick_paciente);
-		System.out.println("citaDTO: "+citaDTO);
-		citaSERVICE.modificarCita(citaDTO);
-		request.setAttribute("citaDTO", citaDTO);		
+//		CitaDTO citaDTO=citaSERVICE.buscarCitaDTO(id_cita);
+//		citaDTO.setNick_paciente(nick_paciente);
+//		System.out.println("citaDTO: "+citaDTO);
+//		citaSERVICE.modificarCita(citaDTO);
+//		request.setAttribute("citaDTO", citaDTO);		
 		return "pideCita";
 	}
 }
