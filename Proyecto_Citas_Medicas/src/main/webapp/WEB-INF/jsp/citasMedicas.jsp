@@ -34,23 +34,24 @@ tr:nth-child(even) {
     </li>
   </ul>
   <ul class="navbar-nav">
-   <li class="nav-item">
-           <button type="button" class="btn" data-toggle="modal" data-target="#altaCita">Alta Cita</button>
-          
-         
-          
-          
+   <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color: #8331CC" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ¿Quieres crear una cita?
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <label class="dropdown-item" data-toggle="modal" data-target="#altaCita">Alta Cita</label>
+         </div>
       </li>
   </ul>
   
 
 
 <!-- Modal Registro-->
-<div class="modal fade" id="altaCita" tabindex="-1" role="dialog" aria-labelledby="altaCita" aria-hidden="true">
+<div class="modal fade" id="altaCita" tabindex="-1" role="dialog" aria-labelledby="altaCitaModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Alta cita</h5>
+        <h5 class="modal-title" id="altaCita">Alta cita</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
