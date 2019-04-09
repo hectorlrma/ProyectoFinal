@@ -124,7 +124,7 @@
 						</div>
 <div class="container">
 <div class="floatLeft">
-<tr><table class="table">
+<table class="table">
 							<thead>
 								<tr style="text-align: center">
 									<th><strong>ID Cita</strong></th>
@@ -148,7 +148,7 @@
 </div>
 
 <div class="floatRight">
-<tr><table class="table">
+<table class="table">
 							<thead>
 								<tr style="text-align: center">
 									<th><strong>ID Cita</strong></th>
