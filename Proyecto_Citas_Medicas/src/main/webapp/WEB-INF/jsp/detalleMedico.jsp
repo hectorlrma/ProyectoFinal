@@ -36,7 +36,7 @@ tr:nth-child(even) {
     </li>
     
   </ul>
-  <a class="nav-link" href="/citaHoyPac" style="color: #8331CC; font-size: 25px;"><strong>MIS CITAS</strong></a>
+  <a class="nav-link" href="/volverBuscar" style="color: #8331CC; font-size: 25px;"><strong>VOLVER A BUSCAR</strong></a>
   <ul></ul><ul></ul><ul></ul>
   
   </nav>
