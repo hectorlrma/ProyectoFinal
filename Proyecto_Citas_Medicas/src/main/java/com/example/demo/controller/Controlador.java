@@ -401,7 +401,7 @@ public class Controlador {
 	@RequestMapping("/buscar") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
 	public String buscar(HttpServletRequest request) {
 		HttpSession session = request.getSession(true); // abro sesion
-		System.out.println("TRAZA ALTA CITA");
+		System.out.println("TRAZA BUSCAR CITA");
 		int id_especialidad=Integer.parseInt(request.getParameter("especialidad"));
 		int id_localidad=Integer.parseInt(request.getParameter("localidad"));
 		System.out.println("especialidad: "+id_especialidad);
@@ -434,8 +434,49 @@ public class Controlador {
 			}
 		}
 		System.out.println("citaMedicosDTO: "+citasmedico);
-		request.setAttribute("localidadDTO", localidadDTO);
-		request.setAttribute("especialidadDTO", especialidadDTO);
+		session.setAttribute("localidadDTO", localidadDTO);
+		session.setAttribute("especialidadDTO", especialidadDTO);
+		request.setAttribute("citaMedicosDTO", citasmedico);
+		request.setAttribute("medicoDTO", medicoDTO);
+//		citaSERVICE.altaCita(citaDTO);
+		return "buscar";
+	}
+	
+	@RequestMapping("/volverBuscar") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
+	public String volverBuscar(HttpServletRequest request) {
+		HttpSession session = request.getSession(true); // abro sesion
+		System.out.println("TRAZA VOLVER A BUSCAR");
+		EspecialidadDTO escepecialidadDTO=(EspecialidadDTO) session.getAttribute("especialidadDTO");
+		LocalidadDTO localidadDTO=(LocalidadDTO) session.getAttribute("localidadDTO");
+		System.out.println("escepecialidadDTO: "+escepecialidadDTO);
+		System.out.println("localidadDTO: "+localidadDTO);
+		
+		List<MedicoDTO> medicoDTO=medicoSERVICE.findByLocalidadAndEspecialidad2(escepecialidadDTO.getId_especialidad(), localidadDTO.getId_localidad());
+		System.out.println("medicoDTO: "+medicoDTO);
+		List<Cita> citas = new ArrayList<Cita>();
+		List<Cita> citasmedico = new ArrayList<Cita>();
+		for (MedicoDTO medicoDTO2 : medicoDTO) {
+			List<Cita> citas1 = medicoDTO2.getCitas();
+			for (Cita cita : citas1) {
+				citas.add(cita);
+			}
+		}
+		for (Cita cita : citas) {
+			try {
+				Date fecha_cita = cita.getFecha_cita();
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+				String fecha_cita_string = formatter.format(fecha_cita);
+				Date fecha_cita_formatted = formatter.parse(fecha_cita_string);
+				System.out.println("fecha_cita_formatted: "+fecha_cita_formatted);
+				if ((fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())>=0)&cita.getPaciente()==null) {
+					citasmedico.add(cita);
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		System.out.println("citaMedicosDTO: "+citasmedico);
 		request.setAttribute("citaMedicosDTO", citasmedico);
 		request.setAttribute("medicoDTO", medicoDTO);
 //		citaSERVICE.altaCita(citaDTO);
