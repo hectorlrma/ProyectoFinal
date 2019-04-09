@@ -468,12 +468,13 @@ public class Controlador {
 		return citaHoyPac(request);
 	}
 	
-/*	@RequestMapping("/cancelarCita") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
-	public String borrarcita(HttpServletRequest request) {
+	@RequestMapping("/cancelarCita") // ("/")esto quiere decir mi pagina de inicio mapeo a nivel de metodo
+	public String cancelarCita(HttpServletRequest request) {
 		HttpSession session = request.getSession(true); // abro sesion
-		System.out.println("TRAZA BORRAR CITA");
-		int id_cita = Integer.parseInt(request.getParameter("id_cita"));
-		citaSERVICE.borrarCita(id_cita);
-		return "borrarcita";
-	}*/
+		System.out.println("TRAZA CANCELAR CITA");
+		int id_cita = (int) request.getAttribute("id_cita");
+		CitaDTO citaDTO=citaSERVICE.buscarCita(id_cita);
+		citaSERVICE.modificarCita(citaDTO);
+		return citaHoyPac(request);
+	}
 }
