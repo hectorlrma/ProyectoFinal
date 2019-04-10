@@ -374,9 +374,8 @@ public class Controlador {
 		List<CitaDTO> citadia = new ArrayList<CitaDTO>();
 		for (CitaDTO cita : citas) {
 			try {
-				String fecha_cita = cita.getFecha_cita();
+				String fecha_cita_string = cita.getFecha_cita();
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-				String fecha_cita_string = formatter.format(fecha_cita);
 				Date fecha_cita_formatted = formatter.parse(fecha_cita_string);
 				System.out.println("fecha_cita_formatted: "+fecha_cita_formatted);
 				if (fecha_cita_formatted.compareTo(citaSERVICE.getFechaDia())==0) {
