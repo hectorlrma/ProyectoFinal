@@ -112,7 +112,7 @@ tr:nth-child(even) {
 							<thead>
 								<tr style="text-align: center; background-color:#B99EF3">
 									<th scope="row"><strong>NÚMERO CITA</strong></th>
-									<th scope="row"><strong>MÉDICO</strong></th>
+									<th scope="row"><strong>PACIENTE</strong></th>
 									<th scope="row"><strong>FECHA</strong></th>
 									<th scope="row"><strong>HORA</strong></th>
 									
@@ -121,7 +121,7 @@ tr:nth-child(even) {
 							<c:forEach var="cita" items="${cita_medico}">
 							<tr style="text-align: center; background-color:#B6B2BF">
 							<td>${cita.id_cita}</td>
-							<td>${cita.nick_medico}</td>
+							<td>${cita.nick_paciente}</td>
 							<td>${cita.fecha_cita}</td>
 							<td>${cita.hora_cita}</td>
 							<td><a href="/borrarcita?id_cita=${cita.id_cita}" type="button" class="btn btn-danger">Borrar</a></td>
