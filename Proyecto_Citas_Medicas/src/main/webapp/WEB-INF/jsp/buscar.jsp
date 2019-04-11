@@ -84,7 +84,7 @@
   CITAS DISPONIBLES PARA<strong> ${especialidadDTO.nombre_especialidad}</strong>EN
   <strong> ${localidadDTO.nombre_localidad}</strong>
    <p>
-        			<table class="table">
+        			<table class="table" style="border-radius: 10px;">
 							<thead>
 								<tr style="text-align: center; background-color:#B99EF3;">
 									<th><strong>Médico</strong></th>
