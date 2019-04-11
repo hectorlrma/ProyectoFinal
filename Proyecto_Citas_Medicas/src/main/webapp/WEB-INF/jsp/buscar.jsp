@@ -78,6 +78,20 @@
   </ul>
   </nav>
 -->
+<nav class="navbar navbar-expand-sm">
+  <ul></ul>
+  <ul></ul>
+  <ul></ul>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="btn btn-info" href="/buscarHoy"><strong>Citas de Hoy</strong></a>
+    </li>
+      <li class="nav-item">
+      <a class="btn btn-info" href="/buscarMañana"><strong>Citas Mañana</strong></a>
+    </li>
+  </ul>
+  
+  </nav>
 
   <div class="container">
 <p> 
