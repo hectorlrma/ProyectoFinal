@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.beans.Cita;
 import com.example.demo.beans.Localidad;
+import com.example.demo.dao.EspecialidadRepository;
 import com.example.demo.dao.LocalidadRepository;
 import com.example.demo.dto.CitaDTO;
 import com.example.demo.dto.LocalidadDTO;
@@ -31,6 +32,7 @@ public class LocalidadSERVICE implements ILocalidadSERVICE {
 			listaDTO.add(localidadDTO);
 		}
 		return listaDTO;
+		
 	}
 	
 public LocalidadDTO buscarLocalidadDTO(int id_localidad) {
@@ -49,5 +51,7 @@ public LocalidadDTO buscarLocalidadDTO(int id_localidad) {
 		
 		
 	}
+
+    
 	
 }
