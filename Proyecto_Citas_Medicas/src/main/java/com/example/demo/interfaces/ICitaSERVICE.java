@@ -24,4 +24,6 @@ public interface ICitaSERVICE {
 	public CitaDTO buscarCita (int id_cita);
 	
 	public Date getFechaDia() throws ParseException;
+	
+	public Date getFechaManana();
 }

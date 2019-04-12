@@ -147,6 +147,31 @@ public class CitaSERVICE implements ICitaSERVICE {
 		
 		
 	}
+
+	@Override
+	public Date getFechaManana() {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd");
+		Date dia = new Date(System.currentTimeMillis());
+		int day = Integer.parseInt(formatter.format(dia)) + 1;
+		formatter = new SimpleDateFormat("MM");
+		Date mes = new Date(System.currentTimeMillis());
+		int month = Integer.parseInt(formatter.format(mes));
+		formatter = new SimpleDateFormat("yyyy");
+		Date anno = new Date(System.currentTimeMillis());
+		int year = Integer.parseInt(formatter.format(anno));
+		SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String fechaDiaString = ""+year+""+month+""+day;
+		Date fechaManana = new Date();
+		try {
+			fechaManana = formatter2.parse(fechaDiaString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return fechaManana;
+	}
 	
 	
 	

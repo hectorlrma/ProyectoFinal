@@ -77,7 +77,7 @@
     </li>
   </ul>
   </nav>
--->
+
 <nav class="navbar navbar-expand-sm">
   <ul></ul>
   <ul></ul>
@@ -92,7 +92,7 @@
   </ul>
   
   </nav>
-
+-->
   <div class="container">
 <p> 
   CITAS DISPONIBLES PARA<strong> ${especialidadDTO.nombre_especialidad}</strong>EN
@@ -107,10 +107,12 @@
 									
 								</tr>
 							</thead>
+							<c:set var="contador" value="${0}" />
 							<c:forEach var="medico" items="${medicoDTO}">
+							
 							<tr style="text-align: center; background-color:#B6B2BF">
 							<td>${medico.nick_medico}</td>
-							<c:set var="contador" value="${0}" />
+							
 							<c:forEach var="cita" items="${citaMedicosDTO}">
 							<c:if test="${cita.nick_medico==medico.nick_medico}">
 							
@@ -127,14 +129,16 @@
 							<tr style="text-align: center; background-color:#B6B2BF">
 							<td></td>
 							<td>${cita.fecha_cita}</td>
-							<td>${cita.hora_cita}</td>
-							<td><a class="nav-link" href="/pideCita?id_cita=${cita.id_cita}" style="color: #8331CC">Pedir cita</a></td>
+							<td><a class="nav-link" href="/pideCita?id_cita=${cita.id_cita}" style="color: #8331CC">${cita.hora_cita}</a></td>
+							
 							</tr>
 							</c:if>
 							 <c:set var="contador" value="${contador + suma}" />
 							</c:if>
+							
 							</c:forEach>
 							</tr>
+							<c:set var="contador" value="${0}" />
 								</c:forEach>
 						</table>
 						</div>

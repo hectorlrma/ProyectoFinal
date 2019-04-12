@@ -406,11 +406,16 @@ public class Controlador {
 		System.out.println("medicoDTO: "+medicoDTO);
 		List<CitaDTO> citas = new ArrayList<CitaDTO>();
 		List<CitaDTO> citasmedico = new ArrayList<CitaDTO>();
+		List<CitaDTO> citas1 = new ArrayList<CitaDTO>();
 		for (MedicoDTO medicoDTO2 : medicoDTO) {
-			List<CitaDTO> citas1 = medicoDTO2.getCitas();
-			for (CitaDTO cita : citas1) {
-				citas.add(cita);
-			}
+			System.out.println("MEDICO DTO"+medicoDTO2);
+			citas1 = medicoDTO2.getCitas();
+			System.out.println("CITAS 1: "+citas1);
+			
+		}
+		for (CitaDTO cita : citas1) {
+			citas.add(cita);
+			System.out.println("Citas for medico: "+cita);
 		}
 		for (CitaDTO cita : citas) {
 			try {
